@@ -1,0 +1,48 @@
+<ion-view title="购物车">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_exchangeCart_Index common-list">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="row1" ng-repeat="i in shopCart">
+                    <div class="row1-top row4">
+                        <div class="item item-thumbnail-left" ui-sref="base.tabs.ykh_Integral_Details({ProductID:{{i.ProductID}}})">
+                            <img ng-src="{{::[i.Pic,true]| imgZoom }}" ng-cache>
+                            <div class="row1-top-left">
+                                <label>
+                                    {{::i.Name}}
+                                </label>
+                            </div>
+                            <div class="row1-top-right common-whiteRed">{{::i.Integral}}积分</div>
+                        </div>
+                    </div>
+                    <div class="row1-bottom">
+                        <div class="row1-bottom-left">小计：<label class="common-whiteRed">{{i.Integral*i.Num}}积分</label></div>
+                        <div class="row1-bottom-right">
+                            <ul>
+                                <li class="nums sign" ng-click="ProductNumJian({{i.ProductID}})">-</li>
+                                <li class="nums">{{i.Num}}</li>
+                                <li class="nums sign" ng-click="ProductNumJia({{i.ProductID}})">+</li>
+                            </ul>
+                            <span class="icon ion-trash-a" ng-click="DelProduct({{i.ProductID}})"></span>
+                        </div>
+                        <div class="common-clear"></div>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="row2-content common-col-radius">
+                        <div class="common-whiteRed">合计{{CountIntegtal}}积分</div>
+                        <div class="common-colorBlue">您当前可用积分：{{MembnerInfo.Integral}}</div>
+                    </div>
+                </div>
+                <div class="row3">
+                    <a ng-click="GotoOrder()" class="button button-block common-fontSize18 comment-button-oranged common-col-radius">确定下单</a>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

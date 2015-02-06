@@ -1,0 +1,16 @@
+<ion-view title="操作提示">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <h1 class="title ng-binding">操作提示</h1>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5 status">
+        <div class="card">
+            <div class="item item-text-wrap c-1 text-center">
+                <i class="{{statusClassName}} c-4"></i>
+                {{::contentText}}
+            </div>
+        </div>
+        <div class="padding">
+            <a class="button button-block {{::buttonClassName}}" ng-href="{{::buttonLink}}">{{::buttonText}}</a>
+        </div>
+    </ion-content>
+</ion-view>

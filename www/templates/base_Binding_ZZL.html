@@ -1,0 +1,28 @@
+<ion-view title="物业绑定">
+    <ion-header-bar class="bar-energized bar bar-header nav-bar">
+        <h1 class="text-center title">物业绑定</h1>
+    </ion-header-bar>
+    <ion-content class="b-c-f5 bindingZZLForm has-header">
+        <ng-form name="bindingZZLForm" id="bindingZZLForm" novalidate="">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="tel" placeholder="输入业主11位手机号码" ng-model="user.phone" name="phone" ng-minlength="11" ng-maxlength="11" ng-required="true" />
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="输入业主密码" ng-model="user.pass" name="pass" ng-minlength="6" ng-required="true" />
+                </label>
+            </div>
+            <div class="margin">
+                <input type="submit" class="button button-block button-energized" ng-disabled="bindingZZLForm.$invalid" ng-click="bindingZZLRegister(bindingZZLForm)" value="绑定物业信息" />
+            </div>
+            <div class="margin">
+                <a class="button button-block button-stable" ng-href="#/tabs/index">暂不绑定</a>
+            </div>
+        </ng-form>
+    </ion-content>
+    <ion-footer-bar class="bar bar-footer b-c-f5">
+        <div class="text-center bar-footer-a">
+            <a href="#/login">已有帐号登录</a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

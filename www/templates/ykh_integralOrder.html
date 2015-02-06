@@ -1,0 +1,49 @@
+<ion-view title="订单确认">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="jf_integralOrder_Index common7">
+            <main class="content">
+                <!-- 主体内容 -->
+                <ng-form>
+                    <div class="row1 common-marginTop44">
+                        <div class="item item-icon-left">
+                            <div class="item-left1">
+                                <div>收货人:&nbsp;&nbsp;  {{::MemberInfo.Name}}</div>
+                                <div>联系电话:&nbsp;&nbsp;{{::MemberInfo.Phone}}</div>
+                                <div>
+                                    收货地址:&nbsp;&nbsp;
+                                    <input type="text" ng-model="MemberInfo.Address" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row2">订单信息</div>
+                    <div class="list" ng-repeat="i in shopCart">
+                        <div class="item">
+                            <img src="{{::[i.Pic,true]| imgZoom }}" ng-cache>
+                            <div class="item-left">
+                                {{::i.Name}}
+                            </div>
+                            <div class="item-right">{{::i.Num}}&nbsp;x&nbsp;<span class="common-whiteRed">{{::i.Integral}}积分</span></div>
+                        </div>
+                    </div>
+
+                    <div class="list row3">
+                        <!--<button class="button button-block common-fontSize18 common-col-radius">查看更多订单信息</button>-->
+                        <div class="common-whiteRed">订单合计：{{::CountIntegtal}}积分</div>
+                    </div>
+                    <div class="list row3 row4">
+                        <div class="common-colorBlue">您当前可用积分：{{::MemberInfo.Integral}}</div>
+                    </div>
+                    <div class="row5">
+                        <button ng-click="SubmitOrder()" class=" button button-block common-fontsize18 comment-button-oranged common-col-radius">确定兑换</button>
+                    </div>
+                </ng-form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

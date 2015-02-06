@@ -1,0 +1,50 @@
+<ion-view title="置业首页">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" leftmenu></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-gear-outline" rightmenu></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zy_Index b-c-f5 ngTabs">
+        <div class="slide" id="slide3" banner>
+            <ul>
+                    <li ng-repeat="i in Ad"><a ng-href="{{i.adk_localurl}}"><img ng-src="{{::[i.adk_path,false] | imgZoom}}" ng-cache></a></li>
+            </ul>
+            <div class="dot">
+                <span ng-repeat="i in Ad"></span>
+            </div>
+        </div>
+        <div class="tabs-striped tabs-background-stable tabs-top tabs-color-light">
+            <div class="tabs">
+                <a class="tab-item active" ui-sref="base.tabs.base_Index">
+                    项目
+                </a>
+                <a class="tab-item" ui-sref="base.tabs.base_callCenter({PID:'10'})">
+                    在线导购
+                </a>
+                <a class="tab-item" ui-sref="base.tabs.zy_Gf_Progress">
+                    购房进度
+                </a>
+            </div>
+        </div>
+        <div class="tabsTop">
+            <div id="tabs1" class="ngTab">
+                <div class="list listMore">
+                    <a ng-repeat="i in Project" class="item item-thumbnail-left" ui-sref="base.tabs.zy_Project({id:i.ID})">
+                        <img ng-src="{{::[i.PropertyType,true] | imgZoom}}" ng-cache/>
+                        <h2>{{::i.Name}}<span ng-show="!i.IsOnSale" class="sign_gray">已售</span><span ng-show="i.IsOnSale" class="sign_green">在售</span></h2>
+                        <p>{{::i.PriceDetails}}</p>
+                        <i class="ion-ios-arrow-right f-2 c-2"></i>
+                    </a>
+                    <div ng-show="GetAllProjectListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有最新活动信息</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

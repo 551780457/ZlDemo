@@ -1,0 +1,27 @@
+<ion-view title="物业绑定">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <h1 class="title ng-binding"></h1>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5 bindingZZLList">
+        <div class="card">
+            <div class="item item-text-wrap c-1 f-09">
+                <b class="text-center c-4 f-12">查询到您拥有以下置业物业信息！</b>
+                选择一个为默认物业地址，以便获取物业服务数据，您也可以在物业模块切换物业地址。
+            </div>
+        </div>
+        <!-- 单选 -->
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-click="checked(i)" ng-init="i.checked = false" ng-repeat="i in zzlList">
+                <img ng-src="http://file27.mafengwo.net/M00/03/22/wKgB6lQed7aAeO2JACMdwxAidZ822.groupinfo.w600.jpeg">
+                <h2>{{i.CommName}}</h2>
+                <p>{{i.RoomSign}}</p>
+                <label class="checkbox checkbox-assertive">
+                    <input type="checkbox" ng-model="i.checked" name="radio" />
+                </label>
+            </a>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-energized" ng-click="bindingZZLList()">确认绑定</button>
+        </div>
+    </ion-content>
+</ion-view>

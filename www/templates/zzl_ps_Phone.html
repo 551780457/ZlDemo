@@ -1,0 +1,27 @@
+<ion-view title="联系电话">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="ps_Phone_Index">
+            <main class="content"><!-- 主体内容 -->
+                <div class="row">请选择您所在小区的电话咨询及订购</div>
+                <div class="tabsTop">
+                    <div id="tabs1" class="ngTab">
+                        <div class="list listMore">
+                            <div ng-href="#"class="item item-thumbnail-left" ng-repeat="i in GetWYProperty">
+                                <img ng-src="{{[i.PicUrl,true] | imgZoom}}" ng-cache/>
+                                <h2>{{::i.Name}}</h2>
+                                <p class="p1">值班时间：{{::i.DeliveryTime1}}</p>
+                                <p class="p2"><a ng-href="tel:{{::i.Tel}}"><i class="icon_icon icon ion-ios-telephone common-btn-clear-border"></i><span>电话咨询</span></a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

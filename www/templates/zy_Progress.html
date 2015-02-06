@@ -1,0 +1,24 @@
+<ion-view title="工程进度">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="zy_Around">
+            <main class="content"><!-- 主体内容 -->
+                <div class="rowOne">
+                    <a ng-repeat="i in infomationList" class="item item-thumbnail-left" ui-sref="base.tabs.zy_ProgressInformation_Details({id:i.ManageID})">
+                        <img src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache>
+                        <p class="p_one">
+                            {{::i.Content}}
+                        </p>
+                        <p class="p_two">{{::i.CreateTime}}</p>
+                        <span class="icon-right ion-chevron-right "></span>
+                    </a>
+                </div>
+               
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

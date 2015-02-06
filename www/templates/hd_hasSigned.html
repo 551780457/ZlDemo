@@ -1,0 +1,68 @@
+<ion-view title="已经报名">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="hd_activityDetails_Index hd_hasSigned_Index">
+            <main class="content"><!-- 主体内容 -->
+                <div class="banner common-marginTop44">
+                    <div class="slides common-slides" id='slidesbanner' banner>
+                        <ul id="slides">
+                            <li><a ng-href="javascript:;"><img ng-src="{{::[activityDetails.PicUrl,true] | imgZoom }}" ng-cache></a></li>
+                        </ul>
+                        <p class="pager"></p>
+                    </div>
+                </div>
+                <div class="row1">
+                    <h4>{{::activityDetails.Name}}</h4>
+                    <h6>{{::activityDetails.CreateTime}}</h6>
+                    <p>{{::activityDetails.Content}}</p>
+                </div>
+                <div class="row1 row2">
+                    <h4>报名须知：</h4>
+                    <p>{{::activityDetails.Additional}}</p>
+                </div>
+                <form action="#" method="post">
+                    <div class="row3">
+                        <div class="list list-inset common-col-radius">
+                            <label class="item item1">
+                                活动地点：
+                                <span type="text">{{::activityDetails.Address}}</span>
+                            </label>
+                            <label class="item item1 item2">
+                                报名时间：
+                                <div class="time">
+                                    <span class="stardTime">{{::activityDetails.StartTime}}</span>
+                                    <span>至</span>
+                                    <span class="endTime">{{::activityDetails.EndTime}}</span>
+                                </div>
+                            </label>
+                            <label class="item item1 item2">
+                                活动时间：
+                                <div class="time">
+                                    <span class="stardTime">{{::activityDetails.ActivityTime}}</span>
+                                    <span>至</span>
+                                    <span class="endTime">{{::activityDetails.ActivityEndTime}}</span>
+
+                                </div>
+                            </label>
+                            <label class="item item1 item3">
+                                活动电话：
+                                <a ng-href="tel:{{::activityDetails.Tel}}">{{::activityDetails.Tel}}</a>
+                                <span class="icon-right ion-chevron-right common-btn-clear-border"></span>
+                            </label>
+                            <label class="item item1">
+                                <span ng-bind-html="activityDetails | PayState"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row4 row6">
+                        <button class="button button-light button-block common-fontSize18 common-col-radius"><img ng-src="../styles/private/images/r-1.png" ng-cache >已经报名</button>
+                    </div>
+                </form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

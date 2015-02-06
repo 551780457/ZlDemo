@@ -1,0 +1,76 @@
+<ion-view title="调研详细">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="qualitySurvey_Detailed">
+            <main class="content">
+                <form action="" target="DataFrame">
+                    <div class="list">
+                        <label class="item item-input">
+                            <span class="input-label">您的姓名</span>
+                            <input type="text" name="txtName" placeholder="请输入您的姓名" ng-model="HouseInfo.Name">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">项目名称</span>
+                            <select ng-model="HouseInfo.ProjectID" ng-options="i.ID as i.Name for i in ProjectList">
+                            <option value="">请选择您所在项目</option>
+                            </select>
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">房&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <input id="txtHouseNumber" name="txtHouseNumber" placeholder="请输入您的房号" type="text" ng-model="HouseInfo.HouseNumber">
+                        </label>
+                    </div>
+                    <!--<div class="rowOne rowOne1">-->
+                        <!--<h4>您的姓名</h4>-->
+                        <!--<div class="mydiv-Input mydiv-Input1">-->
+                            <!--<li>-->
+                                <!--<input id="txtName" name="txtName" type="text" ng-model="HouseInfo.Name">-->
+                            <!--</li>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="rowOne rowOne1">-->
+                        <!--<h4>项目名称</h4>-->
+                        <!--<div class="mydiv-Input mydiv-Input1">-->
+                            <!--<li>-->
+                                <!--<select ng-model="HouseInfo.ProjectID" ng-options="i.ID as i.Name for i in ProjectList">-->
+                                    <!--<option value="">请选择您所在项目</option>-->
+                                <!--</select>-->
+                            <!--</li>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="rowOne rowOne1">-->
+                        <!--<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房号</h4>-->
+                        <!--<div class="mydiv-Input mydiv-Input1">-->
+                            <!--<li>-->
+                                <!--<input id="txtHouseNumber" name="txtHouseNumber" type="text" ng-model="HouseInfo.HouseNumber">-->
+                            <!--</li>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="rowOne" ng-repeat="i in CustomTableColumn">
+                        <h4>{{$index+1}}.{{::i.ShowName}}</h4>
+                        <div class="mydiv-Input">
+                            <li ng-repeat="ii in i.ShowText.split('|')"><label><input id="v_{{i.CID}}" name="v_{{i.CID}}" type="{{i.ShowType|CustomTableShowTypeFilter}}" ng-blur="Blur(i.CID)" value="{{ii}}" ng-model="i.InputValue" /> {{ii}}</label></li>
+                        </div>
+                    </div>
+                    <div ng-show="GetCustomTableColumnError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有调研问题</button>
+                        </div>
+                    </div>
+                    <div class="row row3">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-click="SubmitQuality()">提交</button>
+                    </div>
+                </form>
+                <iframe id="DataFrame"></iframe>
+            </main>
+            <!-- 主体内容 end -->
+
+
+        </section>
+    </ion-content>
+</ion-view>

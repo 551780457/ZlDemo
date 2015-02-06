@@ -1,0 +1,37 @@
+<ion-view title="产品列表">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_IntegralList_Index ps_productList_Index common6">
+            <main class="content"><!-- 主体内容 -->
+                <div class="row row2">
+                    <div class="row2-left">推荐商品</div>
+                    <div class="row2-right">
+                        <a ui-sref="base.tabs.zzl_ps_productClassList" class="button button-energized button-block common-fontSize18 common-col-radius">
+                            选择分类
+                        </a>
+                    </div>
+                </div>
+                <div class="row row3">
+                    <ul>
+                        <li ng-repeat="i in getClasslyProduct">
+                            <a ui-sref="base.tabs.zzl_ps_productDetails({id:{{i.id}}})">
+                                <img class="p-pic" ng-src="{{::i.imgs}}" alt="产品图片" ng-cache>
+                                <p>{{::i.name}}</p>
+                                <div><b class="common-whiteRed">￥{{::i.price}}</b></div>
+                            </a>
+                        </li>
+                        <div ng-show="getClasslyProductError">
+                            <div class="padding text-center">
+                                <button class="button-block button button-small button-clear">该分类暂时没有产品信息</button>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

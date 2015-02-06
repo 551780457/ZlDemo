@@ -1,0 +1,440 @@
+﻿@charset "utf-8";
+/*全局样式*/
+body{font-size: 0.8em;}
+a,a:hover,a:active{text-decoration: none;}
+ul{display: block;}
+li{list-style: none}
+.row{margin:0 !important;}
+.button_One{border: none!important;}
+.icon-right{color:#aaa;}
+.max-width{max-width:100%;}
+/********青松********/
+/*背景颜色*/
+.b-c-f5{background-color: #f5f5f5}
+.bg2{background: #E78213;}
+.bg3{background: #EFB402;}
+.bg4{background: #A4B624 !important;}
+/*基色1 深色*/
+.c-1{color: #898989 !important;}
+/*基色2 灰色*/
+.c-2{color: #acacac !important;}
+/*基色3 浅灰色*/
+.c-3{color: #eff3f6 !important;}
+/*基色4 橙色*/
+.c-4{color:#e67817 !important;}
+/*margin 10*/
+.margin{margin: 10px;}
+/*margin top 10*/
+.m-t-10{margin-top: 10px;}
+/*字体大小 0.8*/
+.f-08{font-size: 0.8em !important;}
+/*字体大小 0.9*/
+.f-09{font-size: 0.9em;}
+/*字体大小 1*/
+.f-1{font-size: 1em;}
+/*字体大小 1.2*/
+.f-12{font-size: 1.2em;}
+/*字体大小 3*/
+.f-3{font-size:3em;}
+/*按钮样式颜色重置		橙色*/
+.button{min-height: 40px;}
+.button.button-energized {border-color: #c25b00;background-color: #e67817;}
+/*按钮样式颜色重置		暗黑色*/
+.button.button-stable {border-color: #aaa;background-color: #C9C9C9;}
+/*顶部条样式颜色重置		橙色*/
+.bar.bar-energized {border-color: #c25b00;background-color: #e67817;}
+/*myorder按钮重置*/
+.button.myorder{position: absolute;float:right;right: 10px;border:1px solid #fff !important;}
+.tabs .tab-item{color: #e67817;}
+/*表单验证颜色提示 错误*/
+input.ng-dirty.ng-invalid {border-color: #e9322d !important;-webkit-box-shadow: 0 0 6px #f8b9b7;-moz-box-shadow: 0 0 6px #f8b9b7;box-shadow: 0 0 6px #f8b9b7;}
+/*滚屏最后一个背景颜色*/
+.slider-slide:last-child {background-color: #fff;}
+/*弹出框圆角*/
+.popup{border-radius: 4px;overflow: hidden;}
+/*滚屏*/
+.slide{position: relative;max-width: 640px;overflow: hidden;margin: 0px auto;}
+.slide:after{content: '';display: block;width: 100%;padding-top: 40%;}
+.slide ul{position: absolute;left: 0;top: 0;width: 100%;height: 100%;}
+.slide li{list-style: none;position: absolute;left: 0;top: 0;width: 100%;height: 100%;}
+.slide li img{position: absolute;left: 0;top: 0;width: 100%;height:100%;border: none;}
+.slide .dot{position: absolute;right: 10px;bottom: 10px;font-size: 0;}
+.slide .dot span{display: inline-block;width: 10px;height: 10px;margin-left: 5px;border: 1px solid #fff;border-radius: 50%;}
+.slide .dot .cur{background-color: #fff;}
+/*文字向上滚动公共样式*/
+.listA {height: 72px;overflow: hidden;}
+/*主体区域阴影设置*/
+.menu-content {box-shadow: -3px 0px 2px rgba(0,0,0, 0.2), 3px 0px 2px rgba(0, 0, 0, 0.2);}
+/*单行溢出*/
+.Description{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+/*内边距样式*/
+.padding2{padding-left: 10px;padding-right: 10px;}
+.paddingTop5{padding-top: 5px;}
+/*修复tabs样式差别*/
+.ngTabs .tabs-top > .tabs{top: 44px;border:0;}
+.ngTabs .tab-item{color: #888888 !important;max-width:inherit;}
+.ngTabs .tab-item.active{color: #e67817 !important;border:2px solid #e67817 !important;}
+.ngTabs .tabsTop{margin-top:0px;}
+.ngTabs .tabsTop>div{display: none;}
+.ngTabs .tabsTop>div:first-child{display: block;}
+@-webkit-keyframes rotate {from {-webkit-transform:rotate(0deg);}to {-webkit-transform:rotate(360deg);}}
+.ion-load-c{-webkit-animation-name: rotate; -webkit-animation-duration: 1.5s;-webkit-animation-iteration-count: infinite;-webkit-animation-timing-function: linear;}
+/*.menu-open .menu-content{-webkit-filter:blur(3px);}*/
+/*右侧边栏*/
+.item.item-divider.ng-binding{padding:10px 0 9px 10px;font-weight: lighter;background: #fff !important;}
+.leftMenu .list{border-top:1px solid #ddd;}
+.leftMenu .name,.rightMenu .name{border-width:0 !important;padding-bottom: 1px;}
+.leftMenu .allItem,.rightMenu .allItem{margin: 1px 10px;border-radius:3px;border:1px solid #ddd !important;}
+.leftMenu a.item,.rightMenu a.item{background: none;border-width:0;}
+.leftMenu .allItem a.item:nth-child(n+2),.rightMenu .allItem a.item:nth-child(n+2){border-top:1px solid #ddd !important;}
+.leftMenu .allItem a.item i,.rightMenu .allItem a.item i{font-size:25px;}
+.topMenu{z-index: 5 !important;}
+.rightMenu{box-shadow:-5px 0px 5px rgba(000,000,000,0.3)}
+.rightSlide .headPortrait{background-color: #4D4D4D;}
+.rightSlide .headPortrait ul{padding: 25px 0px;margin: 0px;text-align: center;}
+.rightSlide .headPortrait ul li {color: #fff;}
+.rightMenu .headPortrait li.f-12{margin-top: 10px}
+.rightMenu .headPortrait li.f-09{margin-top: 5px;}
+.rightMenu .headPortrait ul img{width: 80px;height: 80px;border-radius: 50%;}
+.rightMenu .item .ion-ios-arrow-right{color: #acacac;}
+.rightMenu .list img{width: 20px; height: 20px;vertical-align: middle;margin-top:-4px;}
+.rightMenu .list .item-icon-left{padding-left: 10px;}
+.rightMenu .list .item-icon-right .icon{right: 0px;}
+.rightMenu .list .item-icon-right .noNewApp{font-size: 12px;color: #999;right: 10px;position: absolute;}
+/*tabs icons*/
+.tabs_icons{ display: block;background-size: 82% 80%;background-position: 3px;background-repeat: no-repeat;}
+.tab-item.tab-item-active{color: #e67817 !important;}
+.tab-item .icon{width: 32px;}
+.tabs .tab-item,.tabs-striped.tabs-stable .tab-item{color: #888888;line-height: 20px;}
+.tabs-striped.tabs-stable .tab-item.tab-item-active{border-color:#f1f1f1;}
+.tabs-striped.tabs-stable .tab-item.tab-item-active,
+.tabs-striped.tabs-stable .tab-item.active,
+.tabs-striped.tabs-stable .tab-item.activated {margin-top: 0px;border: none;}
+
+.icons_1{background-image: url("../images/icons/tabs_1.png");}
+.tab-item-active .icons_1{background-image: url("../images/icons/tabs_2.png");}
+.icons_2{background-image: url("../images/icons/tabs_3.png");}
+.tab-item-active .icons_2{background-image: url("../images/icons/tabs_4.png");}
+.icons_3{background-image: url("../images/icons/tabs_5.png");}
+.tab-item-active .icons_3{background-image: url("../images/icons/tabs_6.png");}
+.icons_4{background-image: url("../images/icons/tabs_7.png");}
+.tab-item-active .icons_4{background-image: url("../images/icons/tabs_8.png");}
+.icons_5{background-image: url("../images/icons/tabs_9.png");}
+.tab-item-active .icons_5{background-image: url("../images/icons/tabs_10.png");}
+.tabs-striped.tabs-stable .tabs{background-color: #f1f1f1;padding-top: 0px;}
+span.tab-title.ng-binding {margin-top: -3px;display: block;}
+.icon-pic{ width:100%; border-radius:8px}
+/*模块导航图标链接*/
+.navicon{ text-align:center; text-decoration:none; color:#666}
+.navicon p{ margin:0}
+/*引导页面结束*/
+.panceOver .bar-footer{bottom: 50px;background-color: initial;margin-bottom: 15px;border:none !important;width:100% !important;text-align: center;border-top:0 !important;border-bottom: 0 !important;background-size: 0px !important;}
+.panceOver .bar-footer .button{display:block;margin-left:35%;color: #fff;border: 1px solid #fff;border-width: 1px !important;padding-left: 20px;padding-right: 20px;}
+/*****陈婷*******/
+/*部分单独公共样式*/
+.marginTop10{margin-top:30px;}
+.common-btn-clear-border{border: 0;}/*清除边框*/
+.common-slides ul li{width:100%;min-height:180px !important;}/*设置banner区块的高度*/
+.common-slides ul li a img{width:100%;min-height: 180px !important;}/*设置banner图片的宽度和高度*/
+.common-col-radius{border-radius: 3px !important;}/*圆角设置*/
+.common-circle{border-radius:50%;}/*圆形设置*/
+.common-clear{clear:both;}/*清除浮动*/
+.common-colorWhite{color: #fff;}/*白色字体*/
+.common-whiteRed{color: #f84706;}/*橙红色字体*/
+.common-colorRed{color: #ff0107;}/*大红色字体*/
+.common-colorBlack{color:#000;}/*黑色色字体*/
+.common-colorBlue{color:#43cee6;}/*蓝色字体*/
+.orangeBg{background:#FFCC66 !important;}/*橙色背景*/
+.common-fontSize18{font-size:1.3em;}/*1.3em的字体大小*/
+.btnHeight{min-height:40px !important;}
+.bottom10{bottom:10px;}
+.right10{right:10px !important;}
+.panHeight{height:90%;}
+.panHeight img{max-height: 100%;width:100%;}
+.common-ul-inlineblock li{margin:0;padding:0;display: inline-block;list-style: none;}
+.comment-button-oranged{background: #ff4600;color: #fff;}
+.myorder1{font-size: 34px;color: #fff;margin-right: 5px;}
+/*图文列表公共样式*/
+.common-list  .row4{width:100%;height:auto;padding:0px;margin-top:5px;}
+.common-list  .row4 .item{width:100%;display: block;height: 110px;border-left:0 !important;border-right:0 !important;}
+.common-list  .row4 .item img{right:10px;max-width:90px !important;max-height:90px !important;height:90px !important;}
+.common-list  .row4 .item label{display:block;height:40px !important;color:#333;white-space:normal !important;}
+.common-list  .row4 .item span{float: right;margin:-60px 10px;font-size: 1.5em;}
+.common-list  .row4 .item p{margin:0px !important;}
+/*我要推荐和发送到朋友圈公共样式*/
+.common .row1{padding:0px !important;background: #fff;}
+.common .row1 .col{text-align: center;height:40px;padding-top:10px;}
+.common .row1 .col a{color: #333;}
+.common .row1 .active{border-bottom: 2px solid #f84706;}
+.common .row1 .active a{color: #f84706;}
+/*推荐成功和结算成功公共样式*/
+.common2{padding-top:60px;background-color: #f5f5f5;min-height: 100%;}
+.common2 .row1 img{width:80px;height:80px;margin:0 auto;display: block;}
+.common2 .row2{padding:10px !important;}
+.common2 .row2 .row2-content{width:100%;height:auto;text-align:center;padding:10px;border:1px solid #ccc;background: #fff;}
+.common2 .row2 .row2-content span{display:block;margin:0 auto;}
+.common2 .row2 .row2-content p{float: left;margin:0;}
+.common2 .row3{padding: 10px;}
+.common2 .row3 .button{width:100%;margin-top:0;}
+/*我的客户和我的佣金公共样式*/
+.common1 .row1{height:90px;padding:0px !important;background: #fff;}
+.common1 .row1 .col{text-align: center;height:40px;padding-top:25px;}
+.common1 .row1 .col a{color: #f84706;}
+.common1 .row1 .col a span{font-size:30px;font-weight: bold;}
+.common1 .row1 .active{height:100%;border: 1px solid #fff;background: #f84706;}
+.common1 .row1 .active a{color: #fff;}
+.common1 .row2{top:10px;}
+.common1 .row2 .list .item{padding:10px 10px 10px 72px !important;}
+.common1 .row2 .list a img{max-width:60px;max-height:60px;height:60px;left:10px !important;top:10px !important;}
+.common1 .row2 .list a h2{font-weight: bold;}
+.common1 .row2 .list a h2,.common1 .row2 .list a p{margin-left:10px;font-size:12px;}
+/*修改绑定提现账户和修改账户信息*/
+.common4 .row1{padding:10px !important;font-size:15px;}
+.common4 .bar-stable{background: #ccc;}
+.common4 .bar-stable .button{color: #797979;background: #ccc;}
+.common4 .row1 .list-inset{margin:0;width:100%;}
+.common4 .row1 .list-inset label input{margin-left:50px;}
+.common4 .row2{padding:0 10px !important;font-size:14px;}
+.common4 .row4{padding:10px !important;width:100%;}
+.common4 .row4 .list-inset{width:100%;margin:0 !important;height:47px;padding: 0px !important;border:1px solid #ccc;}
+.common4 .row4 .list-inset .left{padding:5px 10px 5px 0;height:100%;float: left;margin-right:0px;}
+.common4 .row4 .list-inset .right{padding:10px 20px;height:100%;float: right;background: #bbb;}
+.common4 .row5{padding:0 10px !important;}
+.common4 .row5 .button{margin:0 !important;border-width:0px !important;}
+/*一行两个按钮并排样式*/
+.common5  .row3 ul{display: block;margin:0;padding:0;width:100%;height:50px;}
+.common5  .row3 ul li{float:left;margin:0;width:50%;height:100%;padding:5px;}
+.common5  .row3 ul li a{border-width:0;padding-top:5px;display: block;text-align:center;width:100%;height:100%;}
+.common5  .row3 ul li a:hover{background: #2ed99f;}
+/*积分商城首页和积分产品分类列表页面样式*/
+.common6 header .myorder{border-color:#fff !important;}
+.common6 header .myorder:hover{color: #565656;}
+/*积分填写订单，积分确认订单，积分订单详情公共样式*/
+.common7 .list {margin:0;background:#fff;padding:10px !important;height:80px;border-bottom:1px solid #ccc;}
+.common7 .list .item{height:100%;padding:0px !important;border:0;white-space: normal;}
+.common7 .list .item img{width:60px;height:60px !important;position: absolute}
+.common7 .list .item .item-left{position: absolute;height:100%;margin:0px 80px 0 70px !important;overflow: hidden;}
+.common7 .list .item .item-right{font-size:13px;position:absolute;right:0;padding-top:20px;margin:0px 0 0 5px !important;width:80px;height:100%;}
+.common7 .list .item .item-right .button{width:80px;}
+/*****储建阳****/
+/* CSS Document */
+.icon-pic{ width:50px;height:50px; border-radius:8px}
+/*模块导航图标链接*/
+.navicon{ text-align:center; text-decoration:none; color:#666}
+.navicon p{ margin:0}
+/*分栏标题*/
+.box-title{ padding-left:10px;}
+.box-title h4{ margin:0; font-size:1.3em}
+/*标识*/
+.sign_green{padding:2px 4px; margin-left:3px; background-color:#390; border-radius:3px; color:#FFF}
+.sign_blue{padding:2px 4px; margin-left:3px; background-color: #0f69ae; border-radius:3px; color:#FFF}
+.sign_orange{padding:2px 4px; margin-left:3px; background-color:#F90; border-radius:3px; color:#FFF}
+.sign_red{padding:2px 4px; margin-left:3px; background-color:#F00; border-radius:3px; color:#FFF}
+.sign_gray{padding:2px 4px; margin-left:3px; background-color:#ddd; border-radius:3px;}
+/*时间控件*/
+.quickdate {
+    display: inline-block;
+    position: relative;
+}
+.quickdate-button div,
+.quickdate-action-link div {
+    display: inline;
+}
+.quickdate-popup {
+    z-index: 10;
+    background-color: #fff;
+    border: solid 1px #000;
+    text-align: center;
+    width: 300px;
+    display: none;
+    position: absolute;
+    padding: 5px;
+    left: 0px;
+}
+.quickdate-popup.open {
+    display: block;
+}
+.quickdate-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #333;
+    font-size: 110%;
+    margin-top: -6px;
+    text-decoration: none;
+    padding:5px;
+}
+.quickdate-close:hover {
+    text-decoration: underline;
+}
+.quickdate-close:hover,
+.quickdate-close:visited {
+    color: #333;
+}
+.quickdate-calendar-header {
+    display: block;
+    padding: 2px 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.quickdate-month {
+    display: inline-block;
+}
+a.quickdate-prev-month {
+    float: left;
+}
+a.quickdate-next-month {
+    float: right;
+}
+.quickdate-text-inputs {
+    text-align: left;
+    margin-bottom: 5px;
+}
+.quickdate-input-wrapper {
+    width: 48%;
+    display: inline-block;
+}
+input.quickdate-date-input,
+input.quickdate-time-input {
+    width: 100px;
+    margin: 0;
+    height: auto;
+    padding: 2px 3px;
+}
+table.quickdate-calendar {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 5px;
+}
+table.quickdate-calendar th,
+table.quickdate-calendar td {
+    padding: 5px;
+}
+table.quickdate-calendar td:hover {
+    cursor: pointer;
+}
+.quickdate-popup-footer {
+    text-align: right;
+    display: block;
+}
+.quickdate input.ng-invalid {
+    border: 1px solid #dd3b30;
+}
+.quickdate input.ng-invalid:focus {
+    outline-color: #dd3b30;
+}
+
+.quickdate {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 15px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.quickdate input,
+.quickdate select {
+    font-size: 13px;
+}
+.quickdate-button {
+    display: block;
+    background: #ffffff;
+    color: #333333;
+    border: solid 1px #cccccc;
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+    padding:8px;
+    text-decoration: none;
+    text-align: center;
+}
+.quickdate-button:hover {
+    text-decoration: underline;
+}
+.quickdate-button:hover i {
+    text-decoration: none;
+}
+.quickdate-button i {
+    padding-right: 4px;
+}
+.quickdate-popup {
+    color: #333333;
+    font-size: 15px;
+    background-color: #fafafa;
+    border: solid 1px #dddddd;
+}
+.quickdate-action-link:visited,
+.quickdate-action-link:hover {
+    color: #333333;
+}
+.quickdate-next-month i {
+    padding-left: 10px;
+}
+.quickdate-prev-month i {
+    padding-right: 10px;
+}
+table.quickdate-calendar {
+    border: solid 1px #ccc;
+    background-color: #ffffff;
+}
+table.quickdate-calendar th,
+table.quickdate-calendar td {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+table.quickdate-calendar td:hover {
+    background-color: #e6e6e6;
+}
+table.quickdate-calendar td.other-month {
+    background-color: #dbdbdb;
+    color: #808080;
+}
+table.quickdate-calendar td.other-month:hover {
+    background-color: #c7c7c7;
+}
+table.quickdate-calendar td.disabled-date {
+    background-color: inherit;
+    color: #ffffff;
+}
+table.quickdate-calendar td.disabled-date:hover {
+    background-color: inherit;
+    cursor: default;
+}
+table.quickdate-calendar td.selected {
+    background-color: #b0ccde;
+    font-weight: bold;
+}
+table.quickdate-calendar td.is-today {
+    color: #b58922;
+    font-weight: bold;
+}
+table.quickdate-calendar td.is-today.disabled-date {
+    color: #929292;
+    font-weight: normal;
+}
+.quickdate-popup-footer {
+    margin: 3px 1px 0;
+}
+.quickdate-clear {
+    display: inline-block;
+    padding: 2px 4px;
+    background-color: #ffffff;
+    color: #333333;
+    border: solid 1px #cccccc;
+    box-shadow: outset 0 1px 1px rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+    text-decoration: none;
+}
+.quickdate-clear:hover {background-color: #f2f2f2;}
+
+/*IOS state bar 修复*/
+/*.platform-ios .bar-header > *{margin-top: 20px;}*/
+/*.platform-ios .nav-bar-block[nav-bar="active"]{margin-top: 0px;}*/
+/*.platform-ios .has-header {top: 64px}*/
+/*.platform-ios>div>.pane>.bar-header{height: 64px;}*/
+/*[nav-view-transition=ios][nav-view-direction=back] .bar-header > *{margin-top: 0px;}*/
+/*[nav-view-transition=ios][nav-view-direction=back] [nav-bar=entering] {background-color: #e67817; height: 64px;}*/
+/*[nav-view-transition=ios][nav-view-direction=back] [nav-bar=entering] > .bar-header{margin-top: 20px;}*/
+/*.platform-ios .registerBindingYKHForm .list{margin-bottom: 0px;margin-top: 64px;}*/
+/*.platform-ios .status .card {margin: 76px 10px 10px 10px;}*/
+
+.platform-ios .bar-header{top:0px !important; overflow:hidden !important;}
+.platform-ios .bar-header > * {margin-top:10px !important;}

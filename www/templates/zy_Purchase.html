@@ -1,0 +1,55 @@
+<ion-view title="购房预约">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zy_Index b-c-f5 ngTabs" banner>
+        <div class="slide" id="slide3">
+            <ul>
+                <li ng-repeat="i in Arr">
+                    <img ng-src="{{::[i,false,true] | imgZoom}}" alt="广告图" ng-cache>
+                </li>
+            </ul>
+            <div class="dot">
+                <span ng-repeat="i in Arr"></span>
+            </div>
+        </div>
+        <section class="zy_Purchase">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="rowOne">
+                    <img ng-src="./images/zy_gf.png" ng-cache>
+                    <p>
+                        欢迎您预约{{infomation.Name}}项目，我们的销售客服将在第一时间与您联系！
+                    </p>
+                </div>
+                <ng-form novalidate="">
+                    <div class="rowOne">
+                        <div class="list">
+                            <label class="item item-input">
+                                <span class="input-label">手机号码</span>
+                                <input type="text" placeholder="输入手机号码" ng-model="purchase.phone">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">您的姓名</span>
+                                <input type="text" placeholder="真实姓名" ng-model="purchase.truename">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言</span>
+                                <input type="text" placeholder="备注" ng-model="purchase.content">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">到访时间</span>
+                                <input type="text" ng-required="true" placeholder="选择到访时间" cordovadate options="date" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="button button-block button-energized " ng-click="sub()">确定预约</button>
+                    </div>
+                </ng-form>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

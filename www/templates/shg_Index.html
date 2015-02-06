@@ -1,0 +1,73 @@
+<ion-view title="生活馆">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" leftmenu></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-gear-outline" rightmenu></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="hs_Index">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="slide" id='slidesbanner'>
+                    <ul id="slides">
+                        <li ng-repeat="i in ClubList">
+                            <a ui-sref="base.tabs.shg_Hs_Chamber">
+                                <img ng-src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache />
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dot">
+                        <span ng-repeat="i in GetADList"></span>
+                    </div>
+                </div>
+                <div class="row zy_Index_middle">
+                    <ul>
+                        <li>
+                            <a ui-sref="base.tabs.zx({typeid:11})">
+                                <img ng-src="images/icons/shg_icons_1.png" ng-cache>
+                                <p>我的资讯</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.shg_Hs_Chamber({ClubID:1})">
+                                <img ng-src="images/icons/shg_icons_2.png" ng-cache>
+                                <p>我要预订</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.shg_Hs_Card">
+                                <img ng-src="images/icons/shg_icons_3.png" ng-cache>
+                                <p>我的身份</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.shg_Hs_ReserveOrder">
+                                <img ng-src="images/icons/shg_icons_4.png" ng-cache>
+                                <p>我的订单</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="rows zy_Index_mu">
+                    <h4>最新活动</h4>
+                </div>
+                <div class="rows hs_huodong" ng-show="GetActivityListSuccess">
+                    <div class="cols" ng-repeat="i in GetActivityList">
+                        <a ui-sref="base.tabs.hd_activityDetails({id:{{i.ActivityID}},modules:'P0134'})">
+                            <img ng-src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache class="hs_img1">
+                            <p class="Description ng-binding">{{::i.Name}}</p>
+                        </a>
+                    </div>
+                    <div class="common-clear"></div>
+                </div>
+                <div class="padding" ng-show="GetActivityListError">
+                    <button class="button-block button button-light">暂无最新活动信息</button>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

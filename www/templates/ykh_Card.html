@@ -1,0 +1,34 @@
+<ion-view title="会员卡">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_Card_Index">
+            <main class="content"><!-- 主体内容 -->
+                <div class="member_Car common-marginTop44">
+                    <img ng-if="Card.Memlevel=='银卡'" ng-src="./images/Card_yk.png" alt="car" class="car" ng-cache />
+                    <img ng-if="Card.Memlevel=='金卡'" ng-src="./images/Card_jk.png" alt="car" class="car" ng-cache />
+                    <img ng-if="Card.Memlevel=='铂金卡'" ng-src="./images/Card_bjk.png" alt="car" class="car" ng-cache />
+                </div>
+                <div class="rowOne">
+                    <ul>
+                        <li>
+                            <label>会员姓名</label><span>{{::Card.Name}}</span>
+                        </li>
+                        <li>
+                            <label>会员等级</label><span>{{::Card.Memlevel}}</span>
+                        </li>
+                        <li>
+                            <label>可用积分</label><span>{{::Card.Integral}}</span>
+                        </li>
+                         <li>
+                            <label>会员卡号</label><span>{{::Card.MemberCard}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

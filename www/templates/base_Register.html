@@ -1,0 +1,32 @@
+<ion-view title="用户注册">
+    <ion-header-bar class="bar-energized bar bar-header nav-bar">
+        <h1 class="text-center title">用户注册</h1>
+    </ion-header-bar>
+    <ion-content class="b-c-f5 registerForm">
+        <ng-form name="registerForm" id="registerForm" novalidate="">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="tel" placeholder="输入您的11位手机号码" name="phone" ng-model="user.phone" ng-minlength="11" ng-maxlength="11" ng-required="true" />
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="六位以上的密码" name="pass" ng-model="user.pass" ng-minlength="6" ng-required="true" />
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="确认密码" name="repass" ng-model="user.repass" repass="pass" ng-minlength="6" ng-required="true" />
+                </label>
+            </div>
+            <div class="verCode clearfix">
+                <input type="number" placeholder="短信验证码" name="keyCode" ng-model="user.keyCode" ng-minlength="6" ng-maxlength="6" ng-required="true" />
+                <button class="button button-light f-08" ng-disabled="registerForm.phone.$invalid" vcode-type="REGIST" vuser phone="{{user.phone}}">发送验证码</button>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-energized" ng-disabled="registerForm.$invalid" ng-click="register(registerForm)">注册</button>
+            </div>
+        </ng-form>
+    </ion-content>
+    <ion-footer-bar class="bar bar-footer b-c-f5">
+        <div class="text-center bar-footer-a">
+            <a ui-sref="login">已有帐号登录</a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

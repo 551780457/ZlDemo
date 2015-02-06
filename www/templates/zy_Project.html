@@ -1,0 +1,83 @@
+<ion-view title="项目首页">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zy_Index b-c-f5 ngTabs">
+        <div class="slide" id="slide3" banner>
+            <ul>
+                <li ng-repeat="i in Arr">
+                        <img ng-src="{{::[i,false,true] | imgZoom}}" alt="" ng-cache>
+                </li>
+            </ul>
+            <div class="dot">
+                <span ng-repeat="i in Arr"></span>
+            </div>
+        </div>
+        <section class="zy_Project">
+            <main class="content"><!-- 主体内容 -->
+                <div class="row zy_Index_middle">
+                    <ul>
+                        <li>
+                            <a ui-sref="base.tabs.zx({typeid:'13',Authority:infomation.ID})">
+                                <img ng-src="./images/icons/zy_icons_1.png" ng-cache>
+                                <p>优惠政策</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zx({typeid:'12',Authority:infomation.ID})">
+                                <img ng-src="./images/icons/zy_icons_2.png" ng-cache>
+                                <p>户型品鉴</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.hd_ActivityList({Modules:'P0133',Authority:infomation.ID})">
+                                <img ng-src="./images/icons/zy_icons_3.png" ng-cache>
+                                <p>最新活动</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-click="Navigation()">
+                                <img ng-src="./images/icons/zy_icons_4.png" ng-cache>
+                                <p>位置导航</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zy_Around({id:infomation.ID})">
+                                <img ng-src="./images/icons/zy_icons_5.png" ng-cache>
+                                <p>项目周边</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zx({typeid:'9',Authority:infomation.ID})">
+                                <img ng-src="./images/icons/zy_icons_6.png" ng-cache>
+                                <p>工程进度</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zy_Purchase({projectid:infomation.ID,name:Name})">
+                                <img ng-src="./images/icons/zy_icons_7.png" ng-cache>
+                                <p>购房预约</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img ng-src="./images/icons/zy_icons_un.png" ng-cache>
+                                <p>我要推荐</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row zy_Index_mu">
+                    <h5>项目详情</h5>
+                </div>
+                <div class="row zy_Index_xiang">
+                    <p>
+                        {{::infomation.PriceDetails}}
+                    </p>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view title="最新活动">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="hd_myActivity_Index ngTabs"><!-- 头部内容 -->
+            <!-- 头部内容 end -->
+            <main class="main Activity tabsTop"><!-- 主体内容 -->
+                <!--活动列表-->
+                <div class="list Activity-list ngTab">
+                    <a class="item" ui-sref="base.tabs.hd_activityDetails({id:i.ActivityID,modules:i.Modules})" ng-repeat="i in allactivityData">
+                        <div class="left">
+                            <img ng-src="{{::[i.PicUrl,false] | imgZoom}}" ng-cache />
+                            <div class="from">{{::i.Modules| Modules}}</div>
+                        </div>
+                        <div class="right">
+                            <div class="left">
+                                <h2>{{::i.Name}}</h2>
+                                <span class="address">地点：{{::i.Address}}</span>
+                                <span>{{::i.StartTime}} 开始</span>
+                                <span>{{::i.EndTime}} 结束</span>
+                                <span ng-if="i.ActivityState=='活动已开始'" class="activity activity1"><label class="sign_green">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名中'" class="activity activity1"><label class="sign_green">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名未开始'" class="activity activity1"><label class="sign_blue">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名已结束'" class="activity activity1"><label class="sign_gray">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='活动已结束'" class="activity activity1"><label class="sign_gray">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='已报名'" class="activity activity1"><label class="sign_orange">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='已签到'" class="activity activity1"><label class="sign_orange">{{::i.ActivityState}}</label></span>
+                                <span ng-show="!i.IsPayment" class="activity activity2">免费</span>
+                                <span ng-show="i.IsPayment" class="activity activity2">报名费：￥{{::i.Money}}</span>
+                            </div>
+                            <i class="ion-ios-arrow-right f-2 c-2"></i>
+                            <div class="common-clear"></div>
+                        </div>
+                        <div class="common-clear"></div>
+                    </a>
+                </div>
+                <div ng-show="allactivityDataError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时无您的数据</button>
+                    </div>
+                </div>
+                <article class="padding" ng-show="noData">
+                    <button class="button button-clear button-small c-2 f-09 button-block" ng-click="loadMoreData()">点击加载更多...</button>
+                </article>
+            </main><!-- 活动列表 end -->
+        </section>
+    </ion-content>
+</ion-view>

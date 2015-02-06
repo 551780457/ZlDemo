@@ -1,0 +1,34 @@
+<ion-view title="生活馆">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="hs_Reserve">
+            <main class="content"><!-- 主体内容 -->
+                <!--div class="back">
+                    <img ng-src="{{::[HSClubInfo.PicUrl,true] | imgZoom}}"  ng-cache >
+                    <dl>
+                        <dd>会所：{{::HSClubInfo.Name}}</dd>
+                        <dd>位置：{{::HSClubInfo.Address}}</dd>
+                    </dl>
+                </div-->
+                <div class="rowOne" ng-repeat="i in GetClubBookingList">
+                    <a class="item item-thumbnail-left" ui-sref="base.tabs.shg_Hs_Order({BookingID:{{i.BookingID}}})">
+                        <img ng-src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache >
+                        <p class="p_one">{{::i.Title}}</p>
+                        <p class="p_two" ng-show="i.IsPrice">￥100.00&nbsp;<label>{{::i.BookingUnit}}</label></p>
+                        <p class="p_two" ng-show="!i.IsPrice"><label>免费</label></p>
+                        <i class="ion-ios-arrow-right f-2 c-2"></i>
+                    </a>
+                </div>
+                <div ng-show="GetClubBookingListError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时没有信息</button>
+                    </div>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

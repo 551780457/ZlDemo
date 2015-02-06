@@ -1,0 +1,92 @@
+<ion-view title="成都.中粮">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" leftmenu></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-gear-outline" rightmenu></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <main class="main base_Index">
+            <!-- 主体内容 -->
+            <!--幻灯-->
+            <div class="slide" id="slide3" banner>
+                <ul class="clearfix">
+                    <li ng-repeat="i in ADList">
+                        <a href="{{::i.adk_url}}">
+                            <img ng-src="{{::[i.adk_path,true] | imgZoom}}" ng-cache alt="banner">
+                        </a>
+                    </li>
+                </ul>
+                <div class="dot">
+                    <span ng-repeat="i in ADList"></span>
+                </div>
+            </div>
+            <!--板块图标-->
+            <div class="row row-center">
+                <a class="col navicon" ui-sref="base.tabs.ykh"><img class="icon-pic" ng-src="images/icons/index_icons_1.png"><p>悦客会</p></a>
+                <a class="col navicon" ui-sref="base.tabs.zy"><img class="icon-pic" ng-src="images/icons/index_icons_2.png"><p>置业中心</p></a>
+                <a class="col navicon" ui-sref="base.tabs.zzl"><img class="icon-pic" ng-src="images/icons/index_icons_3.png"><p>住这里</p></a>
+                <a class="col navicon" ui-sref="base.tabs.shg"><img class="icon-pic" ng-src="images/icons/index_icons_4.png"><p>生活馆</p></a>
+            </div>
+            <div class="row row-center maintop-4">
+                <a class="col navicon" ><img class="icon-pic" ng-src="images/icons/index_icons_5.png"><p>全民经纪人</p></a>
+                <a class="col navicon" ui-sref="base.tabs.hd_MyActivity"><img class="icon-pic" ng-src="images/icons/ykh_icons_1.png"><p>我的活动</p></a>
+                <a class="col navicon" ui-sref="base.tabs.ykh_product"><img class="icon-pic" ng-src="images/icons/ykh_icons_2.png"><p>积分商城</p></a>
+                <a class="col navicon" ui-sref="base.tabs.base_callCenter"><img class="icon-pic" ng-src="images/icons/ykh_icons_5.png"><p>客服中心</p></a>
+            </div>
+            <!--最新动态-->
+            <div class="row title box-title"><h4>最新动态</h4></div>
+            <div class="list news-list" texttop>
+                <!--注意该部分请上下滚动-->
+                <div id="listA" class="listA">
+                    <a class="item item-avatar" ui-sref="base.tabs.zx_information_Details({id:'{{i.ManageID}}',typeid:{{i.TypeID}}})" ng-repeat="i in ManageList">
+                        <img ng-src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache>
+                        <h2>{{::i.Title}}</h2>
+                        <p>{{::i.Content}}</p>
+                    </a>
+                    <div ng-show="GetInformationManageListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有最新活动信息</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--最新活动-->
+            <div class="row title box-title">
+                <h4>最新活动</h4>
+            </div>
+            <div class="index-Activity-slides">
+                <ul class="clearfix">
+                    <li ng-repeat="i in ActivityList">
+                        <a ui-sref="base.tabs.hd_activityDetails({id:{{i.ActivityID}},modules:{{i.Modules}}})">
+                            <img ng-src="{{::[i.PicUrl,true] | imgZoom}}" ng-cache />
+                            <span class='Description'>{{::i.Name}}</span>
+                        </a>
+                    </li>
+                    <div ng-show="GetActivityListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有最新活动信息</button>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <!--联盟商家-->
+            <div class="row title box-title"><h4>中粮品牌</h4><a ui-sref="base.tabs.ykh_Merchant({Type:1})">更多</a></div>
+            <div class="row">
+                <ul class="paddingTop5">
+                    <li class="col Alliance-logo" ng-repeat="i in MerchantList">
+                        <a ui-sref="base.tabs.ykh_Merchant_Details({AllianceBusinessID:'{{i.AllianceBusinessID}}'})"><img class="icon-pic" ng-src="{{::[i.PicUrl,true] | imgZoom}}"><p>{{::i.Name}}</p></a>
+                    </li>
+                    <div ng-show="GetAllianceMerchantListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有最新活动信息</button>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <!--联盟商家 end-->
+        </main><!-- 主体内容 end -->
+    </ion-content>
+</ion-view>

@@ -1,0 +1,85 @@
+<ion-view title="产品展示">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_IntegralDetails_Index ps_productDetails_Index common5">
+            <main class="content"><!-- 主体内容 -->
+                <div class="slide" id="slide3" banner>
+                    <ul>
+                        <li ng-repeat="i in getProductInfo.imgs">
+                            <a ng-href="">
+                                <img ng-src="{{::getProductInfo.imgs[0]}}" alt="" ng-cache>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dot">
+                        <span ng-repeat="i in getProductInfo.imgs"></span>
+                    </div>
+                </div>
+                <div class="content row2">
+                    <ul class="list">
+                        <li class="item">
+                            {{::getProductInfo.name}}
+                        </li>
+                        <li class="item">
+                            <span class="exchangeIntegral"><b class="common-whiteRed">￥{{::getProductInfo.price}}</b></span>
+                            <div class="oldPrice" ng-if="getProductInfo.integral">可使用：{{::getProductInfo.integral}}积分抵扣(1积分=￥1.00)</div>
+                        </li>
+                        <!--<li class="item">-->
+                            <!--<span class="exchangeIntegral">产品参加：折扣活动内容信息</span>-->
+                            <!--<div>结束时间：2012-12-12</div>-->
+                            <!--<div class="oldPrice">折扣：5折&nbsp;&nbsp;&nbsp;&nbsp;原价：<s>￥10.00</s></div>-->
+                        <!--</li>-->
+                        <!--<li class="item">-->
+                            <!--<span>商家品牌：三星</span>-->
+                        <!--</li>-->
+                        <!--<li class="item">-->
+                            <!--<span>位置：F区 2012</span>-->
+                        <!--</li>-->
+                        <li class="item">
+                            <a ui-sref="base.tabs.zzl_ps_detailsParameter({type:getProductInfo.detailed})">
+                                <span>产品详细</span>
+                                <i class="ion-ios-arrow-right f-2 c-2"></i>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a ui-sref="base.tabs.zzl_ps_detailsParameter({type:getProductInfo.parame})">
+                                <span>规格参数</span>
+                                <i class="ion-ios-arrow-right f-2 c-2"></i>
+                            </a>
+                        </li>
+                        <!--<li class="list list3">-->
+                            <!--<ul>-->
+                                <!--<li>-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="onlineQQ common-circle">-->
+                                            <!--<span class="icon ion-compass"></span>-->
+                                        <!--</div>-->
+                                        <!--<div class="qqWords">在线QQ</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a ui-sref="base.tabs.zzl_ps_Phone">-->
+                                        <!--<div class="onlineQQ common-circle">-->
+                                            <!--<span class="icon ion-ios-telephone"></span>-->
+                                        <!--</div>-->
+                                        <!--<div class="qqWords">电话订购</div>-->
+                                    <!--</a>-->
+                                    <!--<a ui-sref="base.tabs.zzl_ps_Phone" class="button button-energized button-block common-fontSize18 common-col-radius">电话订购</a>-->
+                                <!--</li>-->
+                                <!--<div class="common-clear"></div>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <div class="row3">
+                    <a ui-sref="base.tabs.zzl_ps_Phone" class="button button-energized button-block common-fontSize18 common-col-radius">电话订购</a>
+
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

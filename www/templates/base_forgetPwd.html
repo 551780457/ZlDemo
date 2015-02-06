@@ -1,0 +1,26 @@
+﻿<ion-view title="Sign-In">
+  <ion-content class="b-c-f5">
+    <ng-form name="loginForm" id="loginForm" novalidate="" class="loginForm">
+        <div class="text-center">
+          <img src="images/logo.png" class="loginLogo" alt="logo" />
+        </div>
+        <label class="item item-input">
+           <input type="tel" placeholder="输入您的11位手机号码" name="phone" ng-model="find.phone" ng-minlength="11" ng-maxlength="11" ng-required="true" />
+        </label>
+        <div class="padding inputList">
+            <div class="verCode clearfix">
+                <input type="number" placeholder="短信验证码" name="keyCode" ng-model="find.keyCode" ng-minlength="6" testKey="keyCode" ng-maxlength="6" ng-required="true" />
+                <button class="button button-light" vcode-type="FINDPWD" vuser phone="{{find.phone}}">发送验证码</button>
+            </div>    
+        </div>
+        <div class="padding m-t-10">
+          <button class="button button-block button-energized" ng-disabled="loginForm.$invalid" ng-click="sub()">确  定</button>
+        </div>
+    </ng-form>
+  </ion-content>
+    <ion-footer-bar class="bar bar-footer b-c-f5">
+        <div class="text-center bar-footer-a">
+            <a ui-sref="login">返回登录</a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

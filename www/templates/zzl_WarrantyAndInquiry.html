@@ -1,0 +1,66 @@
+<ion-view title="报事报修">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zzl_WarrantyAndInquiry b-c-f5 ngTabs">
+        <div class="tabs-striped tabs-background-stable tabs-top tabs-color-light">
+            <div class="tabs">
+                <a class="tab-item active" tabs data-id="tabs1">
+                    在线报修
+                </a>
+                <a class="tab-item" tabs data-id="tabs2">
+                    历史查询
+                </a>
+            </div>
+        </div>
+        <div class="tabsTop">
+            <div id="tabs1" class="ngTab">
+                <div class="padding">
+                    <ng-form novalidate name="val">
+                        <textarea ng-required="true" placeholder="简单描述报修内容信息" ng-model="content.val"></textarea>
+                        <div class="clearfix fileUpLoad">
+                            <!--<input type="file" class="file" placeholder="点击上传图片" ng-model="content.file" name="file" value="Choose File" />-->
+                            <input id="Pic" type="hidden" ng-model="content.file" />
+                            <button class="button button-light photo"  ng-click="UploadType()">上传图片</button>
+                        </div>
+                        <input type="date" class="visitTime" placeholder="选择上门时间" ng-model="content.date" />
+                    </ng-form>
+                </div>
+                <div class="row1">
+                    <ul>
+                        <li>
+                            <a class="button button-block button-energized" ng-href="tel:{{::PropertyInfo.Tel}}">拨打物业电话</a>
+                        </li>
+                        <li>
+                            <button class="button button-block button-energized" ng-disabled="val.$invalid" ng-click="submitWarranty()">提交报修</button>
+                        </li>
+                        <div class="common-clear"></div>
+                    </ul>
+                    <!--<div class="col-50">-->
+                    <!--<a class="button button-block button-energized" ng-href="tel:135123456789">拨打物业电话</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-50">-->
+                    <!--<button class="button button-block button-energized" ng-disabled="val.$invalid" ng-click="submitWarranty()">提交报修</button>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div id="tabs2" class="ngTab">
+                <div class="list">
+                    <a class="item item-thumbnail-left" ng-repeat="i in GetRepairList" ui-sref="base.tabs.zzl_HistoryDetails({IncidentID:'{{i.IncidentID}}'})">
+                        <h2>{{::i.IncidentDate}} 报修记录</h2>
+                        <p class="f-08">{{::i.IncidentContent}}</p>
+                        <p class="f-08">处理状态：{{::i.DealState}}<time class="c-1">{{::i.MainEndDate}}</time></p>
+                        <i class="ion-ios-arrow-right c-2"></i>
+                    </a>
+                    <div ng-show="GetRepairListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有报事报修历史信息</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

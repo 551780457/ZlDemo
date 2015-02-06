@@ -1,0 +1,22 @@
+<ion-view title="{{Title}}">
+    <ion-nav-bar class="bar-energized bar bar-header">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="zx_informationDetails_Index common3">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="row1" ng-show="showinfo">
+                    <span>{{::infomation.Title}}</span>
+                    <p class="p1">{{::infomation.CreateTime | SubstringDate}}</p>
+                    <div class="p2">
+                        <img ng-src="{{[infomation.PicUrl,true] | imgZoom}}">
+                        <div ng-bind-html="infomation.Content | ChangeHtml"></div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

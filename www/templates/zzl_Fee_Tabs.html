@@ -1,0 +1,182 @@
+<ion-view title="物业费用">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+	<ion-content class="zzl_Fee_Tabs b-c-f5 ngTabs">
+        <div class="tabs-striped tabs-background-stable tabs-top tabs-color-light">
+            <div class="tabs">
+                <a class="tab-item active" tabs data-id="tabs1">
+                    欠费查询
+                </a>
+                <a class="tab-item" tabs data-id="tabs2">
+                    实缴查询
+                </a>
+                <a class="tab-item" tabs data-id="tabs3">
+                    应缴查询
+                </a>
+                <a class="tab-item" tabs data-id="tabs4">
+                    预存冲抵
+                </a>
+            </div>
+        </div>
+        <div class="tabsTop">
+            <div id="tabs1" class="ngTab">
+                <div ng-show="GetDebtsFeeSearchSuccess">
+                    <div class="list">
+                        <div class="item" ng-repeat="i in GetDebtsFeeSearch" ng-click="i.checked = !i.checked;Clearing(i.DebtsAmount,$event)" data-id="{{i.FeesID}}">
+                            <a class="item-thumbnail-left clearfix">
+                                <label class="checkbox checkbox-assertive">
+                                    <input disabled type="checkbox" ng-model="i.checked" name="checkbox" id="{{i.FeesID}}" />
+                                </label>
+                                <p>{{::i.CostName}}</p>
+                                <div class="explain">
+                                    <span>欠费</span>
+                                    <strong class="c-4 f-12">￥{{::i.DebtsAmount}}</strong>
+                                    <time class="c-2">{{::i.FeesDueDate | DateStringFormat}}</time>
+                                </div>
+                            </a>
+                            <ul class="clearfix">
+                                <li>应缴：￥{{::i.DueAmount}}</li>
+                                <li>减免：￥{{::i.WaivAmount}}</li>
+                                <li>实缴：￥{{::i.PaidAmount}}</li>
+                                <li>冲抵：￥{{::i.PrecAmount}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="item item-text-wrap text-center">
+                            本次缴费合计：<b class="c-4">￥<span>{{AllDeb}}</span></b>
+                        </div>
+                    </div>
+                    <div class="padding">
+                        <button class=" button button-block button-energized" ng-click="submitFee()">确认缴费</button>
+                    </div>
+                </div>
+                <div ng-show="GetDebtsFeeSearchError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时无您的信息</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs2" class="ngTab">
+                <div class="list select">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            查询月份
+                        </div>
+                        <select ng-model="dates.value" ng-change="GetPaidFeeSearch()" ng-options="i.a as i.b for i in dateList">
+                            <option value="">请选择时间</option>
+                        </select>
+                    </label>
+                </div>
+                <div ng-show="GetPaidFeeSearchSuccess">
+                    <h5 class="title padding2">{{::dates.value}}月物业实缴费情况：</h5>
+                    <div class="list">
+                        <div class="item" ng-repeat="i in GetPaidFeeSearch2">
+                            <a class="item-thumbnail-left clearfix">
+                                <p>{{::i.CostName}}</p>
+                                <div class="explain">
+                                    <span>实缴</span>
+                                    <strong class="c-4 f-12">￥{{::i.DueAmount}}</strong>
+                                    <time class="c-2">{{::i.ChargeDate | DateStringFormat}}</time>
+                                </div>
+                            </a>
+                            <ul class="clearfix">
+                                <li class="text-left">应缴：￥{{::i.DueAmount}}</li>
+                                <li>应缴时间：<span class="c-2">{{::i.FeesDueDate | DateStringFormat}}</span></li>
+                                <li class="text-left">编号：{{::i.BillsSign}}</li>
+                                <li>缴费方式：{{::i.ChargeMode}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="GetPaidFeeSearchError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时无您的信息</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs3" class="ngTab">
+                <div class="list select">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            查询月份
+                        </div>
+                        <select ng-model="dates.value" ng-change="GetDueFeeSearch()" ng-options="i.a as i.b for i in dateList">
+                            <option value="">请选择时间</option>
+                        </select>
+                    </label>
+                </div>
+                <div ng-show="GetDueFeeSearchSuccess">
+                    <h5 class="title padding2">{{::dates.value}}月物业应缴费情况：</h5>
+                    <div class="list">
+                        <div class="item" ng-repeat="i in GetDueFeeSearch2">
+                            <a class="item-thumbnail-left clearfix">
+                                <p>{{::i.CostName}}</p>
+                                <div class="explain">
+                                    <span>应缴</span>
+                                    <strong class="c-4 f-12">￥{{::i.DueAmount}}</strong>
+                                    <time class="c-2">{{::i.FeesDueDate | DateStringFormat}}</time>
+                                </div>
+                            </a>
+                            <ul class="clearfix">
+                                <li>开始时间：<span class="c-2">{{::i.FeesStateDate | DateStringFormat}}</span></li>
+                                <li>结束时间：<span class="c-2">{{::i.FeesEndDate | DateStringFormat}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="GetDueFeeSearchError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时无您的信息</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs4" class="ngTab">
+                <!--<div class="list" ng-show="GetOffsetPreSearchBalance">-->
+                    <!--<div class="item item-button-right paddingTopBottom15">-->
+                        <!--当前余额：<b class="f-12 c-4">￥100.00</b>-->
+                        <!--<button class="button button-energized button-outline f-08">-->
+                            <!--查看并充值-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="list select">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            查询月份
+                        </div>
+                        <select ng-model="dates.value" ng-change="GetOffsetPreSearch()" ng-options="i.a as i.b for i in dateList">
+                            <option value="">请选择时间</option>
+                        </select>
+                    </label>
+                </div>
+                <div ng-show="GetOffsetPreSearchSuccess">
+                    <h5 class="title padding2">{{::dates.value}}月预存冲抵记录</h5>
+                    <div class="list">
+                        <div class="item" ng-repeat="i in GetOffsetPreSearch2">
+                            <a class="item-thumbnail-left clearfix">
+                                <p>{{::i.CostName}}</p>
+                                <div class="explain">
+                                    <span>冲抵</span>
+                                    <strong class="c-4 f-12">￥{{::i.OffsetAmount}}</strong>
+                                    <time class="c-2">{{::i.OffsetPreDate | DateStringFormat}}</time>
+                                </div>
+                            </a>
+                            <ul class="clearfix">
+                                <li>余额：￥{{::i.OldPrecAmount}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="GetOffsetPreSearchError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时无您的信息</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</ion-content>
+</ion-view>

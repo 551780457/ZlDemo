@@ -1,0 +1,85 @@
+<ion-view title="配送商城">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="ps_shop_Index">
+            <main class="content"><!-- 主体内容 -->
+                <div class="slide" id="slide3" banner>
+                    <ul>
+                        <li ng-repeat="i in GetADList">
+                            <a ng-href="{{::i.adk_url}}">
+                                <img ng-src="{{::[i.adk_path,true] | imgZoom}}" alt="{{::i.adk_name}}"  ng-cache/>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dot">
+                        <span ng-repeat="i in GetADList"></span>
+                    </div>
+                </div>
+                <!--<div class="row1">-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<a>-->
+                                <!--<img ng-src="{{[GetADList2[0].adk_path,true] | imgZoom}}" ng-cache>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="ad">-->
+                                <!--<a>-->
+                                    <!--<img ng-src="{{[GetADList2[1].adk_path,true] | imgZoom}}" ng-cache>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="ad">-->
+                                <!--<a>&lt;!&ndash; ui-sref="base.tabs.hd_activityDetails" &ndash;&gt;-->
+                                    <!--<img ng-src="{{[GetADList2[2].adk_path,true] | imgZoom}}" ng-cache>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<div class="common-clear"></div>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <div class="row row2">
+                    <div class="row2-left">推荐分类</div>
+                </div>
+                <div class="row1 row1_1">
+                    <ul>
+                        <li ng-repeat="i in getRecommendClassly">
+                            <a ui-sref="base.tabs.zzl_ps_productList({id:{{i.id}}})">
+                                <img ng-src="{{::i.images}}" ng-cache>
+                                <span>{{::i.name}}</span>
+                            </a>
+                        </li>
+                        <div ng-show="getRecommendClasslyError">
+                            <div class="padding text-center">
+                                <button class="button-block button button-small button-clear">暂时没有分类</button>
+                            </div>
+                        </div>
+                        <div class="common-clear"></div>
+                    </ul>
+                </div>
+                <div class="row row2">
+                    <div class="row2-left">推荐商品</div>
+                </div>
+                <div class="row row3">
+                    <ul>
+                        <li ng-repeat="i in featuredProducts">
+                            <a ui-sref="base.tabs.zzl_ps_productDetails({id:{{i.id}}})">
+                                <img class="p-pic" ng-src="{{::i.imgs}}" alt="产品图片" ng-cache>
+                                <p>{{::i.name}}</p>
+                                <!--<div><b class="common-whiteRed">￥50.00</b></div>-->
+                            </a>
+                        </li>
+                        <div ng-show="featuredProductsError">
+                            <div class="padding text-center">
+                                <button class="button-block button button-small button-clear">暂时没有推荐商品</button>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

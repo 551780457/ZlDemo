@@ -1,0 +1,44 @@
+<ion-view title="客服咨询">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5" data-ng-init="load()">
+        <section class="kf_ask_Index">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="row1">
+                    <img ng-src="images/icons/ykh_icons_5.png" class="common-circle" ng-cache>
+                    <span>你正在和<label class="c-4">{{::title}}</label>聊天</span>
+                </div>
+                <ion-scroll>
+                    <div class="row2">
+                        <div class="row2-content1" ng-repeat="i in MsgList">
+                            <img ng-if="i.MessageType==2" ng-src="images/icons/ykh_icons_5.png" class="common-circle" ng-cache>
+                            <img ng-if="i.MessageType==1" ng-src="{{::MemberInfo.Pic}}" class="common-circle" ng-cache>
+                            <span class="row2-right">
+                                <!--row2-right的宽度为row2-content1减去35px-->
+                                <p class="title">{{::i.CreateTime}}</p>
+                                <p class="words">{{::i.Content}}</p>
+                            </span>
+                            <div class="common-clear"></div>
+                        </div>
+                    </div>
+                </ion-scroll>
+            </main>
+        </section>
+        <div class="list bottom10">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="内容" ng-model="content.val" class="btnHeight" />
+                </label>
+                <button class="button common-btn-clear-border button-energized btnHeight" ng-click="send()">　发送　</button>
+            </div>
+        </div>
+        <!--<audio id="myaudio" hidden="true">
+            <source src="msg.wav" type="audio/wav">
+            <source src="msg.mp3" type="audio/mpeg">
+        </audio>-->
+    </ion-content>
+</ion-view>

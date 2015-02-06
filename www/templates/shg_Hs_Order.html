@@ -1,0 +1,68 @@
+<ion-view title="项目详细">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="hs_Order">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="banner">
+                    <div class="slides" id='slidesbanner'>
+                        <ul id="slides">
+                            <!--此处为bannner图-->
+                            <li><img ng-src="{{[Booking.PicUrl,false] | imgZoom}}" ng-cache></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row_1">
+                    <ul>
+                        <li><h4>{{::Booking.Title}}</h4></li>
+                        <li ng-show="Booking.IsPrice">价格:<span>￥{{::Booking.Price}}</span></li>
+                        <li>预订电话：<a href="tel:{{::Booking.Tel}}">{{::Booking.Tel}}</a></li>
+                        <li>{{::Booking.Content}}</li>
+                    </ul>
+                </div>
+                <ng-form name="Reservation" id="Reservation" novalidate="true">
+                    <div class="row_2">
+                        <h5>我要预定</h5>
+                        <div class="list">
+                            <label class="item item-input">
+                                <span class="input-label">会员电话：</span>
+                                <input type="tel" placeholder="会员电话" ng-required="true" ng-minlength="11" ng-maxlength="11" ng-model="user.phone" />
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">会员姓名：</span>
+                                <input type="text" placeholder="会员姓名" ng-required="true" ng-maxlength="6" ng-model="user.name" />
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">预定数量：</span>
+                                <input type="text" placeholder="请输入预定数量/单位" ng-required="true" ng-model="user.number" />
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">预定日期：</span>
+                                <input type="text" placeholder="日期" cordovadate options="date" ng-model="user.date" ng-required="true" />
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">预定时间：</span>
+                                <input type="text" placeholder="时间" ng-required="true" ng-model="user.time" cordovadate options="time" />
+                            </label>
+                        </div>
+                        <div class="row_3">
+                            <div class="list list-inset list2 common-col-radius">
+                                <div class="left">
+                                    <input type="text" placeholder="填写短信验证码" phone="user.phone" ng-minlength="6" ng-maxlength="6" ng-required="true">
+                                </div>
+                                <div class="right" vcode-type="ORDER" vcode>发送验证码</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row_4">
+                        <button class="button button-block button-energized" ng-click="submitRes()" ng-disabled="Reservation.$invalid">确认预定</button>
+                    </div>
+                </ng-form>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

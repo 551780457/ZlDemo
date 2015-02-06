@@ -1,0 +1,29 @@
+<ion-view title="品质调研">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="qualitySurvey_Index">
+            <main class="content">
+                <div class="rowOne" ng-repeat="i in CustomTable">
+                    <a ui-sref="base.tabs.ykh_QualitySurvey_Detailed({TID:{{i.TID}}})">
+                        <p class="p_one">{{::i.Name}}</p>
+                        <p class="p_two">{{::i.State}}人参与</p>
+                        <i class="ion-ios-arrow-right f-2 c-2"></i>
+                        <div class="common-clear"></div>
+                    </a>
+                </div>
+                <div ng-show="CustomTableError">
+                    <div class="padding text-center">
+                        <button class="button-block button button-small button-clear">暂时没有更多品质调研信息</button>
+                    </div>
+                </div>
+                <article class="padding" ng-show="noData">
+                    <button class="button button-clear button-small c-2 f-09 button-block" ng-click="loadMoreData()">点击加载更多...</button>
+                </article>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

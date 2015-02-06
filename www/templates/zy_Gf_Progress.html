@@ -1,0 +1,30 @@
+<ion-view title="购房进度查询">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="gf_Index">
+            <main class="content"><!-- 主体内容 -->
+                <ul>
+                    <li ng-repeat="i in GetTradeList">
+                        <a ui-sref="base.tabs.zy_Gf_Status({tradeid:i.TradeGUID}) ">
+                            <dl>
+                                <dd class="Description ng-binding"><span>{{::i.Building}}-</span><span ng-if="i.Uint!=''">{{::i.Uint}}-</span><span>{{::i.Room}}</span></dd>
+                                <dd class="Description">物业地址：{{::i.Project}}</dd>
+                                <dd class="Description ng-binding">当前状态：<span ng-bind-html="i.RoomStatus | Gf_state"></span></dd>
+                            </dl>
+                            <i class="icon ion-chevron-right"></i>
+                        </a>
+                    </li>
+                    <div ng-show="GetTradeListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">这里空空如也，期待您早日成为中粮业主</button>
+                        </div>
+                    </div>
+                </ul>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

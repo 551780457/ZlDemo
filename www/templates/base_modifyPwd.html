@@ -1,0 +1,20 @@
+﻿<ion-view title="Sign-In">
+  <ion-content class="b-c-f5">
+    <ng-form name="loginForm" id="loginForm" novalidate="" class="loginForm modifyPwd_Index">
+        <div class="text-center">
+          <img src="images/logo.png" class="loginLogo" alt="logo" />
+        </div>
+        <label class="item item-input">
+           <input type="password" placeholder="新密码" name="pass" ng-model="find.pass" ng-minlength="6"  ng-required="true" />
+        </label>
+        <div class="padding inputList">
+        <label class="verCode clearfix">
+            <input type="password"placeholder="确认密码"  ng-model="find.repass" ng-minlength="6" repass="pass"  ng-required="true" />
+        </label>    
+        </div>
+        <div class="padding m-t-10">
+          <button class="button button-block button-energized" ng-click="sub()">确  定</button>
+        </div>
+    </ng-form>
+  </ion-content>
+</ion-view>

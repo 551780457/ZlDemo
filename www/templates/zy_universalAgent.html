@@ -1,0 +1,123 @@
+<ion-view title="全民经纪人">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="qm_universalAgent_Index common-list">
+            <main class="content"><!-- 主体内容 -->
+                <div class="slide" id="slide3" banner>
+                    <ul>
+                        <li ng-repeat="i in ADList">
+                            <a ng-href="{{i.adk_url}}">
+                                <img ngsrc="{{::[i.adk_path,true] | imgZoom}}" alt="" ng-cache>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row common-padding10 row1">
+                    <div class="col col-top content1 common-col-radius">
+                        <div class="content1-left">
+                            <img ng-src="../styles/private/img/touxiang.jpg"  class="common-circle" ng-cache>
+                        </div>
+                        <div class="content1-left1">
+                            <div class="content1-left1-Top">
+                                <span class="common-colorWhite common-spanSize18">全民经纪人姓名</span>
+                                <div class="common-colorWhite">经纪人等级...</div>
+                            </div>
+                            <div class="content1-left1-Bottom">
+                                <ul class="common-ul-inlineblock">
+                                    <li>
+                                        <dl>
+                                            <dd class="common-colorWhite">
+                                                成功推荐
+                                            </dd>
+                                            <dd>
+                                                <img ng-src="../styles/private/img/touxiang.jpg" class="common-circle" ng-cache>
+                                                <span class="common-colorWhite">2&nbsp;人</span>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                    <li>
+                                        <dl>
+                                            <dd class="common-colorWhite">
+                                                总佣金
+                                            </dd>
+                                            <dd>
+                                                <img ng-src="../styles/private/img/touxiang.jpg" class="common-circle" ng-cache>
+                                                <span class="common-colorWhite">￥ 0.00</span>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-clear"></div>
+                    </div>
+                </div>
+                <div class="row row2">
+                    <ul class="common-ul-inlineblock">
+                        <li>
+                            <a ui-sref="base.tabs.zy_iRecommend_Tabs" class="common-col-radius common-spanSize18 common-colorWhite">我要推荐</a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zy_myClient_Tabs" class="common-col-radius common-spanSize18 common-colorWhite">我的客户</a>
+                        </li>
+                        <div class="common-clear"></div>
+                    </ul>
+                </div>
+                <div class="row row2">
+                    <ul class="common-ul-inlineblock">
+                        <li>
+                            <a ui-sref="base.tabs.zy_myCommission" class="common-col-radius common-spanSize18 common-colorWhite">我的佣金</a>
+                        </li>
+                        <li>
+                            <a ui-sref="base.tabs.zy_activityRules" class="common-col-radius common-spanSize18 common-colorWhite">活动细则</a>
+                        </li>
+                        <div class="common-clear"></div>
+                    </ul>
+                </div>
+                <div class="row row3">
+                    在售项目
+                </div>
+
+                <div class="row4">
+                    <a class="item item-thumbnail-left" ui-sref="base.tabs.zy_Project">
+                        <img ng-src="../styles/private/img/renwu1.jpg" ng-cache>
+                        <label>中粮.锦云</label>
+                        <p>
+                            推荐到访：<span class="common-whiteRed">￥50.00</span><br>
+                            签约成功：<span class="common-whiteRed">60%</span>
+                        </p>
+                        <span class="icon-right ion-chevron-right common-btn-clear-border"></span>
+                    </a>
+                    <a class="item item-thumbnail-left" ui-sref="base.tabs.zy_Project">
+                        <img ng-src="../styles/private/img/renwu1.jpg" ng-cache>
+                        <label>中粮祥云国际生活区</label>
+                        <p>
+                            推荐到访：<span class="common-whiteRed">￥50.00</span><br>
+                            签约成功：<span class="common-whiteRed">60%</span>
+                        </p>
+                        <span class="icon-right ion-chevron-right common-btn-clear-border"></span>
+                    </a>
+                    <a class="item item-thumbnail-left" ui-sref="base.tabs.zy_Project">
+                        <img ng-src="../styles/private/img/renwu1.jpg" ng-cache>
+                        <label>中粮.香颂丽都</label>
+                        <p>
+                            推荐到访：<span class="common-whiteRed">￥50.00</span><br>
+                            签约成功：<span class="common-whiteRed">60%</span>
+                        </p>
+                        <span class="icon-right ion-chevron-right common-btn-clear-border"></span>
+                    </a>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

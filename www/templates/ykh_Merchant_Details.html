@@ -1,0 +1,68 @@
+<ion-view title="联盟商家详细">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="ngTabs">
+        <section class="Merchant_Index ngTabs">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="banner">
+                    <div class="slides" id='slidesbanner'>
+                        <ul id="slides">
+                            <!--此处为bannner图-->
+                            <li><a ng-href="javascript:;"><img ng-src="{{[AllianceMerchantInfo.PicUrl,true] | imgZoom}}" ng-cache></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row_h4">
+                    <h5>{{::AllianceMerchantInfo.Name}}</h5>
+                </div>
+                <div class="rowOne">
+
+                    <ul>
+                        <li class="li_last">
+                            <label class="label_in">商家简介：</label><p ng-bind-html="AllianceMerchantInfo.Describe"></p>
+                            <div class="common-clear"></div>
+                        </li>
+                    </ul>
+                    <ul ng-repeat="i in listAddress">
+                        <li ng-click="GetBd('{{i.Location_X}}','{{i.Location_Y}}','{{i.Name}}')"><label>地址：</label><span class="address">{{::i.Address}}</span><i class="ion-ios-arrow-right f-2 c-2"></i></li>
+                        <li><label>联系电话：</label><a href="tel:{{::i.Tel}}">{{::i.Tel}} <i class="icon_icon icon ion-ios-telephone common-btn-clear-border"></i></a></li>
+                    </ul>
+                </div>
+                <div class="tabs-content">
+                    <div class="tabs-striped tabs-background-stable tabs-top tabs-color-light">
+                        <div class="tabs">
+                            <a class="tab-item active" tabs data-id="tabs1">
+                                会员可享权益
+                            </a>
+                            <a class="tab-item" tabs data-id="tabs2">
+                                商家优惠券
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tabsTop">
+                        <div id="tabs1" class="getCoupon ngTab">
+                            {{::AllianceMerchantInfo.Addtional}}
+                        </div>
+                        <div id="tabs2" class="getCoupon ngTab">
+                            <ul>
+                                <li ng-repeat="i in unCounpon">
+                                    <div class="coupon_top">
+                                        <img ng-src="{{::[i.BeginUrl,true] | imgZoom}}">
+                                    </div>
+                                    <div class="coupon_bottom">
+                                        <span class="time">有效期：{{::i.RewardTime}}</span>
+                                        <span class="getBtn"><a class="button" ng-click="GetCoupon({{i.InteractId}})">领取</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

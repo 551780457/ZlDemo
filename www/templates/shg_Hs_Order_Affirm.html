@@ -1,0 +1,64 @@
+<ion-view title="预定订单确认">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="hs_Order_Affirm">
+            <main class="content"><!-- 主体内容 -->
+                <div class="row_top">
+                    <ul>
+                        <li>
+                            <label>预定项目</label><span class="yuding">{{::GetClubBookingOrderInfo.BookingTitle}}</span>
+                        </li>
+                        <li>
+                            <label>预定数量</label><span>{{::GetClubBookingOrderInfo.Number}}</span>
+                        </li>
+                        <li>
+                            <label>预约时间</label><span>{{::GetClubBookingOrderInfo.BookingTime}}</span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label>预定金额</label><span>￥{{GetClubBookingOrderInfo.Money}}</span>
+                        </li>
+                        <!--<li>-->
+                            <!--<label>折&nbsp;扣&nbsp;价</label><span>￥900.00(9折)</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<label>预&nbsp;定&nbsp;金</label><span>￥900.00(100%)</span>-->
+                        <!--</li>-->
+                        <li ng-show="State">
+                            <label>实际应付</label><span class="fact">￥{{::GetClubBookingOrderInfo.Money}}</span>
+                        </li>
+                        <li ng-show="!State" class="borderBotttom">
+                            <label>实际应付</label><span class="fact">￥{{::GetClubBookingOrderInfo.Money}}</span>
+                        </li>
+                        <li ng-show="State">
+                            <label>支付方式</label><span ng-show="State" class="zhifu">
+                                <div ng-repeat="i in GetOnLinePayList"><a ng-click="GetPayType('{{i.BankCode}}')" class="button button-small button-energized">{{::i.BankName}}</a></div>
+
+                            </span>
+                        </li>
+                    </ul>
+                    <!--<h4 ng-show="State">支付方式</h4>-->
+                </div>
+                <!--<div class="row_zhi" ng-show="State">-->
+                    <!--<ul>-->
+                        <!--<li ng-repeat="i in GetOnLinePayList"><a ng-click="GetPayType('{{i.BankCode}}')">{{::i.BankName}}</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <div class="row_btn">
+                    <div ng-show="!State" class="phone"><a class="button button-block button-energized" ng-href="tel:{{::Booking.Tel}}">电话咨询</a></div>
+                    <ul ng-show="State">
+                        <li><a class="button button-block button-energized" ng-href="tel:{{::Booking.Tel}}">电话咨询</a></li>
+                        <li><a class="button button-assertive button-block" ng-click="submitZf()">确认下单支付</a></li>
+                        <!--<li ng-show="!State"><a class="button button-assertive button-block" ng-click="success()">去支付</a></li>-->
+                        <div class="common-clear"></div>
+                    </ul>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

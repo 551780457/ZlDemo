@@ -1,0 +1,75 @@
+<ion-view title="悦客会">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" leftmenu></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-gear-outline" rightmenu></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zy_Index b-c-f5">
+        <section class="ykh_Index">
+            <main class="main">
+                <!-- 主体内容 -->
+                <!--头部-->
+                <div class="user-top-bg">
+                    <a ui-sref="base.tabs.ykh_Card">
+                        <img ng-src="{{::MembnerInfo.Pic}}" class="user-pic" ng-cache>
+                        <div class="user-info">{{::MembnerInfo.Name}}<br>{{::MembnerInfo.MaxMemlevel}}<br>可用积分：{{::MembnerInfo.Integral}}</div>
+                    </a>
+                </div>
+                <!--头部 end-->
+                <!--板块图标-->
+                <div class="row row-center">
+                    <a class="col navicon" ui-sref="base.tabs.hd_ActivityList({Modules:'P0132'})"><img class="icon-pic" ng-src="images/icons/ykh_icons_1.png" ng-cache><p>我的活动</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_product"><img class="icon-pic" ng-src="images/icons/ykh_icons_2.png" ng-cache><p>积分商城</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_MyWarrant"><img class="icon-pic" ng-src="images/icons/ykh_icons_3.png" ng-cache><p>我的权证</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_QualitySurvey"><img class="icon-pic" ng-src="images/icons/ykh_icons_4.png" ng-cache><p>满意度</p></a>
+                </div>
+                <div class="row row-center maintop-4">
+                    <a class="col navicon" ui-sref="base.tabs.ykh_ask({Modules:P0132})"><img class="icon-pic" ng-src="images/icons/ykh_icons_5.png" ng-cache><p>在线客服</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_Merchant({Type:2})"><img class="icon-pic" ng-src="images/icons/ykh_icons_6.png" ng-cache><p>联盟商家</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_MyCoupon"><img class="icon-pic" ng-src="images/icons/ykh_icons_7.png" ng-cache><p>优惠券</p></a>
+                    <a class="col navicon" ui-sref="base.tabs.ykh_myOrder"><img class="icon-pic" ng-src="images/icons/ykh_icons_8.png" ng-cache><p>积分订单</p></a>
+                </div>
+                <!--板块图标 end-->
+                <!--最新活动-->
+                <div class="row title box-title"><h4>最新活动</h4></div>
+                <div class="list Activity-list">
+                    <a class="item" ui-sref="base.tabs.hd_activityDetails({id:{{i.ActivityID}},modules:'{{i.Modules}}'})" ng-repeat="i in ActivityList">
+                        <div class="left">
+                            <img ng-src="{{::[i.PicUrl,false] | imgZoom}}" ng-cache />
+                            <div class="from">{{::i.Modules| Modules}}</div>
+                        </div>
+                        <div class="right">
+                            <div class="left">
+                                <h2>{{::i.Name}}</h2>
+                                <span class="address">地点：{{::i.Address}}</span>
+                                <span>{{::i.StartTime}} 开始</span>
+                                <span>{{::i.EndTime}} 结束</span>
+                                <span ng-if="i.ActivityState=='活动已开始'" class="activity activity1"><label class="sign_green">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名中'" class="activity activity1"><label class="sign_green">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名未开始'" class="activity activity1"><label class="sign_blue">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='报名已结束'" class="activity activity1"><label class="sign_gray">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='活动已结束'" class="activity activity1"><label class="sign_gray">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='已报名'" class="activity activity1"><label class="sign_orange">{{::i.ActivityState}}</label></span>
+                                <span ng-if="i.ActivityState=='已签到'" class="activity activity1"><label class="sign_orange">{{::i.ActivityState}}</label></span>
+                                <span ng-show="!i.IsPayment" class="activity activity2">免费</span>
+                                <span ng-show="i.IsPayment" class="activity activity2">报名费：￥{{::i.Money}}</span>
+                            </div>
+                            <i class="ion-ios-arrow-right f-2 c-2"></i>
+                            <div class="common-clear"></div>
+                        </div>
+                        <div class="common-clear"></div>
+                    </a>
+                    <div ng-show="GetActivityListError">
+                        <div class="padding text-center">
+                            <button class="button-block button button-small button-clear">暂时没有最新活动信息</button>
+                        </div>
+                    </div>
+                </div>
+                <!--最新活动 end-->
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

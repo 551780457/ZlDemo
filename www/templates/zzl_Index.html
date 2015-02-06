@@ -1,0 +1,91 @@
+<ion-view title="住这里">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon" leftmenu></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-gear-outline" rightmenu></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="zzl_Index b-c-f5">
+        <div class="communitySelect">
+            <img ng-src="./images/bg_zzl.jpg" alt="背景图片" class="selectBg" ng-cache />
+            <div class="list">
+                <a class="item item-thumbnail-left" ng-click="CommunityList()">
+                    <img ng-src="{{::userInfo.Pic}}" ng-cache />
+                    <h2>小区：{{::userInfo.PropertyName}}</h2>
+                    <p>房号：{{::userInfo.HouseNum}}</p>
+                    <p>业主：{{::userInfo.Name}}</p>
+                    <i class="ion-ios-arrow-right c-1"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row placard" texttop>
+            <div class="col">
+                <h1 class="title f-12">小区公告</h1>
+                <div id="listA" class="listA">
+                    <a ui-sref="base.tabs.zzl_information_Details({id:{{i.InfoID}}})" ng-repeat="i in AnnData">
+                        <h3 class="f-1 Description c-4">{{::i.Heading}}</h3>
+                        <!--<p class="f-09">{{i.InfoContent}}</p>-->
+                        <p class="f-09">天问的小区公共内容，InfoContent字段是空的啊</p>
+                        <time class="f-08 c-1">{{::i.IssueDate}}</time>
+                        <i class="ion-ios-arrow-right c-1"></i>
+                    </a>
+                    <div class="padding text-center" ng-show="AnnDataError">
+                        <button class="button-block button button-small button-clear">您的小区暂时无公告数据</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row zzlNav">-->
+        <!--<a class="col" ui-sref="base.tabs.zzl_fee">-->
+        <!--<img ng-src="images/icons/zzl_icons_1.png" alt="图标" ng-cache/>物业缴费-->
+        <!--</a>-->
+        <!--<a class="col" ui-sref="base.tabs.zzl_WarrantyAndInquiry">-->
+        <!--<img ng-src="images/icons/zzl_icons_2.png" alt="图标" ng-cache/>报事报修-->
+        <!--</a>-->
+        <!--<a class="col" ui-sref="base.tabs.zzl_StoredDetails_Tabs">-->
+        <!--<img ng-src="images/icons/zzl_icons_3.png" alt="图标" ng-cache/>在线预存-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div class="row zzlNav zzlNavPatch">-->
+        <!--<a class="col" ui-sref="base.tabs.hd_ActivityList({Modules:'P0136'})">-->
+        <!--<img ng-src="images/icons/zzl_icons_4.png" alt="图标" ng-cache/>物业活动-->
+        <!--</a>-->
+        <!--<a class="col" ui-sref="base.tabs.zzl_information">-->
+        <!--<img ng-src="images/icons/zzl_icons_5.png" alt="图标" ng-cache/>物业通知-->
+        <!--</a>-->
+        <!--<a class="col" ui-sref="base.tabs.zzl_ps_shop">-->
+        <!--<img ng-src="images/icons/zzl_icons_6.png" alt="图标" ng-cache/>配送服务-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--板块图标-->
+        <div class="row row-center row-center1">
+            <a class="col navicon" ui-sref="base.tabs.zzl_fee"><img class="icon-pic" ng-src="images/icons/zzl_icons_1.png"><p>物业缴费</p></a>
+            <a class="col navicon" ui-sref="base.tabs.zzl_WarrantyAndInquiry"><img class="icon-pic" ng-src="images/icons/zzl_icons_2.png"><p>报事报修</p></a>
+            <a class="col navicon" ui-sref="base.tabs.zzl_StoredDetails_Tabs"><img class="icon-pic" ng-src="images/icons/zzl_icons_3.png"><p>在线预存</p></a>
+            <a class="col navicon" href="tel:{{PropertyInfo.Tel}}"><img class="icon-pic" ng-src="images/icons/zzl_icons_4.png"><p>投诉建议</p></a>
+        </div>
+        <div class="row row-center maintop-4">
+            <a class="col navicon" ui-sref="base.tabs.hd_ActivityList({Modules:'P0136'})"><img class="icon-pic" ng-src="images/icons/zzl_icons_5.png"><p>物业活动</p></a>
+            <a class="col navicon" ui-sref="base.tabs.zzl_information"><img class="icon-pic" ng-src="images/icons/zzl_icons_6.png"><p>小区资讯</p></a>
+            <a class="col navicon" ui-sref="base.tabs.zzl_ps_shop"><img class="icon-pic" ng-src="images/icons/zzl_icons_7.png"><p>中粮产品</p></a>
+            <a class="col navicon" ui-sref="base.tabs.zx({typeid:'16',Authority:'{{GetWYUser.PropertyID}}'})"><img class="icon-pic" ng-src="images/icons/zzl_icons_8.png"><p>最新动态</p></a>
+        </div>
+        <div class="recommList">
+            <h1 class="title f-12">推荐商品</h1>
+            <ul class="clearfix b-c-f5">
+                <li ng-repeat="i in featuredProducts">
+                    <a ui-sref="base.tabs.zzl_ps_productDetails({id:{{i.id}}})">
+                        <img ng-src="{{i.imgs}}" alt="推荐商品" ng-cache />
+                        <p>{{i.name}}</p>
+                        <!--<b class="c-4">￥100.00</b>-->
+                    </a>
+                </li>
+            </ul>
+            <div class="padding" ng-show="featuredProductsError">
+                <button class="button button-block button-light f-09">暂无数据</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-view title="修改账户密码">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="zh_settingInfo_Index common4">
+            <main class="content">
+                <!-- 主体内容 -->
+                <ng-form class="common-marginTop44" name="editPass">
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input">
+                                旧&nbsp;密&nbsp;码
+                                <input type="password" placeholder="旧密码" ng-model="PwdInfo.OldPwd" ng-minlength="6" ng-required="true" />
+                            </label>
+                            <label class="item item-input">
+                                新&nbsp;密&nbsp;码
+                                <input type="password" placeholder="新密码" name="pass" ng-model="PwdInfo.NewPwd" ng-minlength="6" ng-required="true" />
+                            </label>
+                            <label class="item item-input">
+                                密码确认
+                                <input type="password" placeholder="再次确认密码" ng-model="PwdInfo.ConfirmPwd" name="repass" repass="pass" ng-minlength="6" ng-required="true" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row row2">
+                        请使用当前绑定的手机接收短信验证码
+                    </div>
+                    <div class="row row4">
+                        <div class="list-inset common-col-radius">
+                            <div class="left">
+                                <input type="text" id="VerificationCode" ng-required="true" placeholder="填写短信验证码" ng-model="PwdInfo.VerificationCode">
+                            </div>
+                            <div class="right" vcode-type="ChangePwd" vcode>发送验证码</div>
+                        </div>
+                    </div>
+                    <div class="row row5">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-click="UpdatePwd(editPass);" ng-disabled="editPass.$invalid">确定修改</button>
+                    </div>
+                </ng-form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+<ion-view title="Sign-In">
+  <ion-content class="b-c-f5">
+    <ng-form name="loginForm" id="loginForm" novalidate="" class="loginForm">
+        <div class="text-center">
+          <img src="images/logo.png" class="loginLogo" alt="logo" />
+        </div>
+        <div class="padding inputList">
+          <label class="clearfix">
+              <i class="ion-ios-person-outline"></i>
+              <input type="tel" class="loginInput" placeholder="11位手机号码" ng-model="user.phone" ng-minlength="11" ng-maxlength="11" ng-required="true" name="phone" >
+          </label>
+          <label class="clearfix" id="pwdLabel">
+              <i class="ion-ios-unlocked-outline"></i>
+              <input type="password" class="loginInput" placeholder="您的密码" ng-model="user.pass" name="pass" ng-minlength="6" ng-required="true">
+          </label>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap c-1 text-center f-09">
+                首次登录需进行一次身份识别，中粮业主已是会员，请直接输入手机号绑定，如您是非会员，请先进行绑定或注册。如有疑问，请致电40007 022 033
+            </div>
+        </div>
+        <!--<div class="padding">-->
+            <!---->
+            <!--首次登录需进行一次身份识别，中粮业主已是会员，请直接输入手机号绑定，如您是非会员，请先进行绑定或注册。如有疑问，请致电40007 022 033-->
+        <!--</div>-->
+        <div class="padding paddingTop0">
+          <button class="button button-block button-energized" ng-click="login(loginForm)" ng-disabled="loginForm.$invalid">登　录</button>
+        </div>
+    </ng-form>
+  </ion-content>
+    <ion-footer-bar class="bar bar-footer b-c-f5">
+        <div class="text-center bar-footer-a">
+            <a ui-sref="register">注册帐号</a>
+            <a ui-sref="forgetPwd">忘记密码</a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

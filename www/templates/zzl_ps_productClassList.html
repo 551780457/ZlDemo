@@ -1,0 +1,21 @@
+<ion-view title="产品分类">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_productClassList_Index common6">
+            <main class="content"><!-- 主体内容 -->
+                <div class="ionic-pseudo">
+                    <div class="list list-inset common-col-radius">
+                        <a ng-repeat="i in getProductClassly" ui-sref="base.tabs.zzl_ps_productList({id:{{i.id}}})" class="item">
+                            <span>{{::i.name}}</span>
+                            <i class="ion-ios-arrow-right f-2 c-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

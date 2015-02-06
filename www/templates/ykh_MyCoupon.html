@@ -1,0 +1,62 @@
+<ion-view title="我的优惠券">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5 ngTabs">
+        <section class="myCoupon_Index">
+            <main class="content">
+                <div class="tabs-striped tabs-background-stable tabs-top tabs-color-light">
+                    <div class="tabs">
+                        <a class="tab-item active" tabs data-id="row1">
+                            我的优惠券
+                        </a>
+                        <a class="tab-item" tabs data-id="row2">
+                            领取优惠券
+                        </a>
+                    </div>
+                </div>
+                <div class="tabsTop">
+
+                    <div class="getCoupon ngTab" id="row1">
+                        <ul>
+                            <li ng-repeat="i in CounponResultList">
+                                <div class="coupon_top">
+                                    <img ng-src="{{::[i.ImgURL,true] | imgZoom}}">
+                                </div>
+                                <div class="coupon_bottom">
+                                    <span class="time">有效期：{{::i.RewardTime | SubstringDate}}</span>
+                                    <span class="getBtn"><a class="button" ui-sref="base.tabs.ykh_MyCoupon_Detailed({ID:{{i.ResultId}}})">点击使用</a></span>
+                                </div>
+                            </li>
+                            <div ng-show="GetCouponResultListError">
+                                <div class="padding text-center">
+                                    <button class="button-block button button-small button-clear">暂时没有优惠劵信息</button>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="getCoupon ngTab orange" id="row2">
+                        <ul>
+                            <li ng-repeat="i in unCounpon">
+                                <div class="coupon_top">
+                                    <img ng-src="{{::[i.BeginUrl,true] | imgZoom}}">
+                                </div>
+                                <div class="coupon_bottom">
+                                    <span class="time">有效期：{{::i.RewardTime}}</span>
+                                    <span class="getBtn"><a class="button" ng-click="GetCoupon({{i.InteractId}})">领取</a></span>
+                                </div>
+                            </li>
+                            <div ng-show="GetCouponListError">
+                                <div class="padding text-center">
+                                    <button class="button-block button button-small button-clear">您暂时还没有领取优惠劵</button>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

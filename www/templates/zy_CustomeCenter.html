@@ -1,0 +1,20 @@
+<ion-view title="置业中心">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="kf_onlineService_Index">
+            <main class="content">
+                <div class="ionic-pseudo">
+                    <div class="list list-inset common-col-radius">
+                        <div ng-repeat="i in ProjectList">
+                            <a ng-href="Tel:{{::i.Phone}}" class="item"><span>{{::i.Name}} {{::i.Phone}}</span><span class="icon ion-ios-telephone common-btn-clear-border c-2 f-12"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

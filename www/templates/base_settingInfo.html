@@ -1,0 +1,66 @@
+<ion-view title="修改账户信息">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="zh_settingInfo_Index common4">
+            <main class="content">
+                <!-- 主体内容 -->
+                <form method="post" class="common-marginTop44">
+                    <div class="row row1">
+                        <div class="row1-top">
+                            <img src="{{MemberInfo.Pic}}" class="common-circle" id="Pic" ng-click="UploadType()"><br>
+                            <!--<input type="submit" value="重新上传我的头像" class="button button-small button-positive">-->
+                        </div>
+                    </div>
+                    <!--<div class="row row2">修改绑定手机</div>-->
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input">
+                                会员姓名：{{::MemberInfo.Name}}
+                                <!--<input type="tel" placeholder="16283678476" readonly>-->
+                            </label>
+                            <label class="item item-input">
+                                绑定手机：{{::MemberInfo.Phone}}
+                                <!--<input type="tel" placeholder="16283678476" readonly>-->
+                            </label>
+                            <label class="item item-input">
+                                会员等级：{{::MemberInfo.MaxMemlevel}}
+                                <!--<input type="tel" placeholder="16283678476" readonly>-->
+                            </label>
+                            <label class="item item-input">
+                                可用积分：{{::MemberInfo.Integral}}
+                                <!--<input type="text" placeholder="6位以上字符组合">-->
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input">
+                                联系地址：
+                                <input type="text" placeholder="联系地址" ng-model="MemberInfo.Address">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row row2">
+                        请使用当前绑定的手机接收短信验证码
+                    </div>
+                    <div class="row row4">
+                        <div class="list-inset common-col-radius">
+                            <div class="left">
+                                <input type="text" placeholder="填写短信验证码" ng-model="VCodeInfo.VerificationCode">
+                            </div>
+                            <div class="right" vcode-type="ChangeAccount" vcode>发送验证码</div>
+                        </div>
+                    </div>
+                    <div class="row row5">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-click="UpdateAccount()">确定修改</button>
+                    </div>
+                </form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view title="预定订单">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="hs_ReserveOrder">
+            <main class="content"><!-- 主体内容 -->
+                <div class="tabsTop rowOne">
+                        <ul>
+                            <li ng-repeat="i in GetClubBookingOrderList">
+                                <a ui-sref="base.tabs.shg_Hs_Order_Affirm({id:{{i.BookingStateID}}})"><!-- ui-sref="base.tabs.shg_Hs_ReserverDetail({id:{{i.BookingStateID}}})" -->
+                                    <p>订单编号：<span>{{::i.BookingStateID}}</span></p>
+                                    <p>预定项目：<span>{{::i.BookingManageName}}</span></p>
+                                    <p>预定时间：<span class="span_time">{{::i.BookingTime}}</span></p>
+                                    <p>预定状态：<span class="span_req" ng-if="i.State=='0'">未付款</span><span class="span_req" ng-if="i.State=='1'">已付款</span></p>
+                                    <p>处理时间：<span>2014-6-18 14:12:12</span></p>
+                                    <p>处理人：客服-小王&nbsp;&nbsp;<span>无</span></p>
+                                    <i class="ion-ios-arrow-right f-2 c-2"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="padding" ng-show="GetClubBookingOrderListError">
+                            <button class="button button-block button-stable button-clear f-09">暂无您的预订信息</button>
+                        </div>
+                    </div>
+                </div>
+            </main><!-- 主体内容 end -->
+        </section>
+    </ion-content>
+</ion-view>

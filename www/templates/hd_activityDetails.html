@@ -1,0 +1,134 @@
+<ion-view title="活动详细">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="hd_activityDetails_Index">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="banner">
+                    <div class="slides common-slides" id='slidesbanner'>
+                        <ul id="slides">
+                            <li><a ng-href="javascript:;"><img ng-src="{{[activityDetails.PicUrl,true] | imgZoom }}" ng-cache></a></li>
+                        </ul>
+                        <p class="pager"></p>
+                    </div>
+                </div>
+                <div class="row1">
+                    <h4>{{::activityDetails.Name}}</h4>
+                    <h6>{{::activityDetails.CreateTime}}</h6>
+                    <p>{{::activityDetails.Content}}</p>
+                </div>
+                <div class="row1 row2">
+                    <h4>报名须知：</h4>
+                    <p>{{::activityDetails.Additional}}</p>
+                </div>
+                <ng-form novalidate="">
+                    <div class="row3">
+                        <div class="list list-inset common-col-radius">
+                            <label class="item item1">
+                                活动地点：
+                                <span type="text">{{::activityDetails.Address}}</span>
+                            </label>
+                            <label class="item item1 item2">
+                                报名时间：
+                                <div class="time">
+                                    <span class="stardTime">{{::activityDetails.StartTime}}</span>
+                                    <span>至</span>
+                                    <span class="endTime">{{::activityDetails.EndTime}}</span>
+                                </div>
+                            </label>
+                            <label class="item item1 item2">
+                                活动时间：
+                                <div class="time">
+                                    <span class="stardTime">{{::activityDetails.ActivityTime}}</span>
+                                    <span>至</span>
+                                    <span class="endTime">{{::activityDetails.ActivityEndTime}}</span>
+
+                                </div>
+                            </label>
+                            <div class="item item1 item3">
+                                活动电话：
+                                <a href="tel:{{::activityDetails.Tel}}">
+                                    {{activityDetails.Tel}}
+                                    <span class="icon_icon icon ion-ios-telephone common-btn-clear-border"></span>
+                                </a>
+                            </div>
+                            <label class="item item1">
+                                <span class='sign_red' ng-show="!activityDetails.IsPayment">免费活动</span>
+                                <span class='sign_gray' ng-show="activityDetails.IsPayment">报名费：￥{{::activityDetails.Money}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row4" ng-if="activityDetails.State!='4' && activityDetails.State!='3'">在线报名</div>
+                    <div class="row3 row8" ng-if="activityDetails.State!='4'&& activityDetails.State!='3'">
+                        <div class="list list-inset common-col-radius">
+                            <label class="item item1" ng-if="activityDetails.State!='0'">
+                                会员电话：
+                                <input type="tel" placeholder="会员电话" ng-model="user.phone" readonly ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="activityDetails.State=='0'">
+                                会员电话：
+                                <input type="tel" placeholder="会员电话" ng-model="user.phone" ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="activityDetails.State!='0' ">
+                                会员姓名：
+                                <input type="text" placeholder="悦客会会员" ng-model="user.name" readonly ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="activityDetails.State=='0'">
+                                会员姓名：
+                                <input type="text" placeholder="悦客会会员" ng-model="user.name" ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="activityDetails.State!='0'">
+                                报名人数：
+                                <input type="text" placeholder="输入参与活动的人数" ng-model="user.num" readonly ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="activityDetails.State=='0'">
+                                报名人数：
+                                <input type="text" placeholder="输入参与活动的人数" ng-model="user.num" ng-required="true">
+                            </label>
+                            <label class="item item1" ng-if="(activityDetails.State!='4'|| activityDetails.State!='3') && select!=''">
+                                <select ng-model="user.SelectThing" ng-options="i.Name as i.Name for i in select">
+                                    <option value=""></option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row4 row7">注意参加活动必须成为悦客会会员，如果您还不是，您可以到会员中心或悦客会绑定会员；如果您的好友或家人已是会员，请输入会员信息</div>
+                    <div class="row row5" ng-if="activityDetails.IsValidate == 1 && activityDetails.State=='0'">
+                        <div class="list list-inset list2 common-col-radius" ng-if="activityDetails.State=='4'">
+                            <div class="left">
+                                <input type="text" placeholder="填写短信验证码" ng-model="user.keycode" readonly ng-required="true">
+                            </div>
+                            <div class="right">发送验证码</div>
+                        </div>
+                        <div class="list list-inset list2 common-col-radius" ng-if="activityDetails.State!='4'">
+                            <div class="left">
+                                <input type="text" placeholder="填写短信验证码" ng-model="user.keycode" ng-required="true">
+                            </div>
+                            <div class="right" vcode-type="ACTIVITY" vcode phone="{{user.phone}}">发送验证码</div>
+                        </div>
+                    </div>
+                    <div class="row4 row6" ng-if="activityDetails.State=='0'">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-repeat="i in Bank" ng-if="activityDetails.IsPayment=='1'" ng-click="paysub(i.BankCode)">确认报名并{{i.BankName}}</button>
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-if="activityDetails.IsPayment=='0'" ng-click="sub()">确认报名</button>
+                    </div>
+                    <div class="row4 row6" ng-if="activityDetails.State=='1'">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius">已报名</button>
+                    </div>
+                    <div class="row4 row6" ng-if="activityDetails.State=='2'">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius">已签到</button>
+                    </div>
+                    <div class="row4 row6" ng-if="activityDetails.State=='3'">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius">活动报名还没有开始</button>
+                    </div>
+                    <div class="row4 row6" ng-if="activityDetails.State=='4'">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" disabled="disabled">活动报名已结束</button>
+                    </div>
+                </ng-form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+<ion-view title="物业账号">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <section class="zh_settingInfo_Index common4 zy_Binding_Index">
+            <main class="content">
+                <!-- 主体内容 -->
+                <form method="post" class="common-marginTop44">
+                    <div class="row row2">已绑定的小区</div>
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input" ng-repeat="i in MyWYMemberInfo">
+                                {{::i.HouseNum}}[{{::i.PropertyID}}]
+                                <span class="icon ion-close-circled" ng-click="DelWy({{i.MemberID}})"></span>
+                            </label>
+                            <div ng-show="MyWYMemberInfoError">
+                                <div class="padding text-center">
+                                    <button class="button-block button button-small button-clear">暂时没有绑定的小区</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input">
+                                账号：
+                                <input type="text" placeholder="账号" ng-model="Account.MobilePhone">
+                            </label>
+                            <label class="item item-input">
+                                密码：
+                                <input type="password" placeholder="密码" ng-model="Account.Pwd">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row row1 row3">
+                        <div class="list list-inset list2">
+                            <label class="item item-input" ng-repeat="i in AccountWyMemberInfo">
+                                {{i.HouseNum}}
+                                <span class="icon ion-close-circled"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row row5">
+                        <button class="button button-energized button-block common-fontSize18 common-col-radius" ng-click="GetAccountWy()">获取数据</button>
+                    </div>
+                </form>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>

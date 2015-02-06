@@ -1,0 +1,49 @@
+<ion-view title="积分商城">
+    <ion-nav-bar class="bar-energized bar bar-header nav-bar nav-title-slide-ios7 disable-user-behavior">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon ion-ios-arrow-left" return></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <a ui-sref="base.tabs.ykh_myOrder" class="icon ion-ios-list-outline myorder1"></a>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="b-c-f5">
+        <section class="jf_IntegralList_Index common6">
+            <main class="content">
+                <!-- 主体内容 -->
+                <div class="row row1 common-colorWhite">
+                    <div class="row1-content">
+                        你当前可用的积分：<span class="useIntegral">{{::MembnerInfo.Integral}}分</span>
+                    </div>
+                </div>
+                <div class="row row2">
+                    <div class="row2-left">全部产品</div>
+                    <div class="row2-right">
+                        <!--<select class="common-col-radius">
+                            <option>--选择分类--</option>
+                        </select>-->
+                        <a ui-sref="base.tabs.ykh_exchangeCart" class="button button-small button-energized myorder">我的购物车</a>
+                    </div>
+                </div>
+                <div class="row row3">
+                    <ul>
+                        <li ng-repeat="i in ProductList">
+                            <a ui-sref="base.tabs.ykh_Integral_Details({ProductID:{{i.ProductID}}})">
+                                <img class="p-pic" src="{{::[i.CoverPic,true] | imgZoom}}" alt="产品图片" ng-cache >
+                                <p>{{::i.ProductName}}</p>
+                                <div ng-if="i.ChgType=='实物'">兑换积分：<b class="common-whiteRed">{{::i.Integral}}</b></div>
+                                <div ng-if="i.ChgType=='现金'">1积分=<b class="common-whiteRed">{{::i.PointWorth}}元</b></div>
+                            </a>
+                        </li>
+                        <div ng-show="GetIntegralProductListError">
+                            <div class="padding text-center">
+                                <button class="button-block button button-small button-clear">暂时没有积分产品</button>
+                            </div>
+                        </div>
+                    </ul>
+
+                </div>
+            </main>
+        </section>
+    </ion-content>
+</ion-view>
